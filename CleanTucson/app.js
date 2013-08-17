@@ -21,6 +21,8 @@ Ext.Loader.setPath({
 
 Ext.application({
     name: 'CleanTucson',
+    controllers: ['Home'],
+    //defaultUrl: 'Main/index',
 
     requires: [
         'Ext.MessageBox'
@@ -53,7 +55,18 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
+        //Ext.create('CleanTucson.view.MainView');
+        //Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
+        //this.viewport = new CleanTucson.views.ViewPort();
+        Ext.create('CleanTucson.view.Viewport');
+        
+        /*
+        Ext.Dispatch({
+        	controller: CleanTucson.controllers.Home,
+        	action: 'index'
+        });
+        */
+        
     },
 
     onUpdated: function() {
