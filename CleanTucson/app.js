@@ -29,7 +29,7 @@ Ext.application({
     ],
 
     views: [
-        'Main'
+        'Main', 'Test', 'Map'
     ],
 
     icon: {
@@ -49,7 +49,20 @@ Ext.application({
         '1536x2008': 'resources/startup/1536x2008.png',
         '1496x2048': 'resources/startup/1496x2048.png'
     },
+    
+    
+    viewport: {
+        layout: {
+            type: 'card',
+            animation: {
+                type: 'slide',
+                direction: 'left',
+                duration: 300
+            }
+        }
+    },
 
+/*
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
@@ -67,7 +80,8 @@ Ext.application({
         });
         */
         
-    },
+    //},
+    
 
     onUpdated: function() {
         Ext.Msg.confirm(

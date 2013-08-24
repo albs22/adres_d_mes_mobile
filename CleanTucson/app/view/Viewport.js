@@ -1,17 +1,23 @@
+
+/*
 Ext.define('CleanTucson.view.Viewport', {
 	extend: 'Ext.Panel',
 	
 	config: {
 		fullscreen: true,
-		//layout: 'card',
+		layout: 'card',
 		
 		items: [
 			{
-				xtype: 'homePanel2'
-			}
+				//xtype: 'mview'
+				//xtype: 'homePanel2'
+			},
+			
+			
 		
 		]
 	}
 	
 	
 });
+*/
