@@ -8,6 +8,13 @@ Ext.define('CleanTucson.view.Map', {
     ],
     
     config: {
+     
+    	items: [{
+    				title: 'Map',
+    				xtype: 'mainTitleBar'
+    	}],
+    	
+
     			title: 'map',
     			iconcls: 'maps',
     			xtype: 'map',

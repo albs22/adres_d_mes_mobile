@@ -1,15 +1,13 @@
 Ext.define('CleanTucson.view.Main', {
 	extend: 'Ext.Panel',
 	xtype: 'homePanel2',
-	requires: ['Ext.TitleBar'],
 	
 	config: {
 		
 		items: [
 			{
-				title: 'Clean Tucson',
-				docked: 'top',
-				xtype: 'titlebar'
+				title: 'CleanTucson',
+				xtype: 'mainTitleBar'
 			},
 			{
 				xtype: 'button',

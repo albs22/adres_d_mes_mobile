@@ -29,7 +29,7 @@ Ext.application({
     ],
 
     views: [
-        'Main', 'Test', 'Map'
+        'Main', 'Test', 'Map', 'MainTitleBar'
     ],
 
     icon: {
