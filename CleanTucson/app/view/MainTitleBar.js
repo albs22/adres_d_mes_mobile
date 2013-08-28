@@ -11,17 +11,11 @@ Ext.define('CleanTucson.view.MainTitleBar', {
 			items: [{
 				align: 'left',
 				iconCls: 'home',
-				iconMask: true
+				iconMask: true,
+				action: 'toolBarHome'
+				
 				
 			}]
-			
-			
-			
 		}]
-		
-		
 	}
-	
-	
-	
 });

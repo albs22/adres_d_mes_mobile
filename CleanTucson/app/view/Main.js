@@ -1,6 +1,7 @@
 Ext.define('CleanTucson.view.Main', {
 	extend: 'Ext.Panel',
 	xtype: 'homePanel2',
+	alias: 'widget.home',
 	
 	config: {
 		
@@ -11,7 +12,7 @@ Ext.define('CleanTucson.view.Main', {
 			},
 			{
 				xtype: 'button',
-                text: 'New',
+                text: 'Launch Map',
                 id: 'new',
                 cls: 'main-button'
 			},
@@ -19,18 +20,10 @@ Ext.define('CleanTucson.view.Main', {
 				xtype: 'panel',
 				layout: {type: 'vbox', pack: 'center' },
 
-				items:  [{
-								xtype: 'button',
-								text: 'Launch Map',
-								id: 'buttonMap',
-								cls: 'main-button',
-								align: 'center',
-								width: 150,
-					
-							},
+				items:  [
 							{
 								xtype: 'spacer',
-								height: 100,
+								height: 100
 								
 							},
 							{

@@ -2,6 +2,7 @@ Ext.define('CleanTucson.view.Map', {
     extend: 'Ext.Map',
     alias: 'widget.mymap',
     xtype: 'map',
+    autoCreate: true,
     requires: [
     	//'Ext.Titlebar',
     	'Ext.util.GeoLocation'
