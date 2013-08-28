@@ -21,17 +21,21 @@ Ext.Loader.setPath({
 
 Ext.application({
     name: 'CleanTucson',
-    controllers: ['Home'],
-    //defaultUrl: 'Main/index',
-
+    
     requires: [
         'Ext.MessageBox'
     ],
+    
+    models: ['Violation'],
+    stores: ['Violations'],
+    controllers: ['Home'],
+    //defaultUrl: 'Main/index',
 
+ 
     views: [
         'Main', 'Test', 'Map', 'MainTitleBar'
     ],
-
+    
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',

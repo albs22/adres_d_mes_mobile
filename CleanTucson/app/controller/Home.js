@@ -3,9 +3,9 @@ Ext.define('CleanTucson.controller.Home', {
 
 	config: {
 		refs: {
-			homeButton: 'button[action=toolBarHome]'
+			homeButton: 'button[action=toolBarHome]',
+			storeButton: 'button[action=testStore]'
 		},
-		
 		
 	    control: {
 	    	
@@ -16,6 +16,10 @@ Ext.define('CleanTucson.controller.Home', {
            
            homeButton: {
            		tap: 'goHome'
+           },
+           
+           storeButton: {
+           		tap: 'onStoreTest'
            }
       }
 	},
@@ -56,6 +60,16 @@ Ext.define('CleanTucson.controller.Home', {
     goHome: function() {
     	console.log('Go Home');
     	 Ext.Viewport.setActiveItem('home');
+    },
+    
+    onStoreTest: function() {
+    	console.log('Store Test');
+    	
+    	var vioStore = Ext.getStore("Violations");
+    	console.log('Number of Violations: ' + vioStore.getCount()); 
+    	var firstRecord = vioStore.getAt(0);
+  
+    	console.log('Violation #1: ' + firstRecord.get('description'));
     }
 
 });

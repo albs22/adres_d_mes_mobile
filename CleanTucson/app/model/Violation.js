@@ -1,5 +1,5 @@
-Ext.define('Violation', {
-	extend: 'Ext.data.model',
+Ext.define('CleanTucson.model.Violation', {
+	extend: 'Ext.data.Model',
 	config: {
 		fields: [
 			{ name: 'id', 			type: 'int'    },

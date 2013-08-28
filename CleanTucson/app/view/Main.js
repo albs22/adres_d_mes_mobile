@@ -17,6 +17,12 @@ Ext.define('CleanTucson.view.Main', {
                 cls: 'main-button'
 			},
 			{
+				xtype: 'button',
+				text: 'Store Test',
+				id:'btnStoreTest'
+				
+			},
+			{
 				xtype: 'panel',
 				layout: {type: 'vbox', pack: 'center' },
 
@@ -32,6 +38,7 @@ Ext.define('CleanTucson.view.Main', {
 								cls: 'main-button',
 								align: 'center',
 								width: 150,
+								action: 'testStore'
 								
 							}]
 			}]	
