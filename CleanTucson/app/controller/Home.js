@@ -45,17 +45,52 @@ Ext.define('CleanTucson.controller.Home', {
     
     mapController: function(googlemap) {
     	console.log('map control');
+    	var violationList = Ext.getStore('Violations');
+    	
+    	
+    	for (var i = 0, ln = violationList.getCount(); i < ln; i++) {
+    		console.log(violationList.getAt(i));
+    		addMarker(violationList.getAt(i));
+    	}
+    	
+    	function addMarker(violation) {
+    		var latLng = new google.maps.LatLng(violation.get('lat'), violation.get('lng'));
+    		
+    		//create new marker
+    		var marker = new google.maps.Marker({
+    			position: latLng,
+    			map: googlemap,
+    			title: violation.get('type')
+    		});
+    		
+    		var popup;
+    		
+    		//Create popup on marker click
+    		google.maps.event.addListener(marker, 'click', function() {
+    			popup.setContent(violation.get('description')),
+    			popup.open(googlemap, marker)
+    		});
+    		
+    		popup = new google.maps.InfoWindow();
+    	}
+    	
+    	
+    	
           //adding a marker to the map
-        var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(32.2800, -111.01),
-                    title : 'testing',
-                    map: googlemap,
-                    animation: google.maps.Animation.BOUNCE,
-                });
-
+        //var marker = new google.maps.Marker({
+                 //   position: new google.maps.LatLng(32.2800, -111.01),
+                  //  title : 'testing',
+                 //   map: googlemap,
+                 //   animation: google.maps.Animation.BOUNCE
+              //  });
+                
+         //add all violations to map
+                
+               
         //setting the center of map, in this case: LatLng(20.5167, 46.2167)
        // googlemap.setCenter(new google.maps.LatLng(20.5167, 46.2167));
     },
+    
     
     goHome: function() {
     	console.log('Go Home');
