@@ -4,7 +4,8 @@ Ext.define('CleanTucson.controller.Home', {
 	config: {
 		refs: {
 			homeButton: 'button[action=toolBarHome]',
-			storeButton: 'button[action=testStore]'
+			storeButton: 'button[action=testStore]',
+			mapInfoContainer: {selector: 'map #mapDetail'} 
 		},
 		
 	    control: {
@@ -44,6 +45,13 @@ Ext.define('CleanTucson.controller.Home', {
     },
     
     mapController: function(googlemap) {
+    	
+    	console.log(mapInfoContainer);
+    	//Ext.ComponentQuery.query('#mapDetail').setHtml("Detail Says Hello");
+    	//Ext.getCmp("#mapDetail").setHtml("Shit");
+    	//var mi = CleanTucson.view.Map.items.get(1);
+    	//mi.update("Wow");
+    	
     	console.log('map control');
     	var violationList = Ext.getStore('Violations');
     	
@@ -65,9 +73,27 @@ Ext.define('CleanTucson.controller.Home', {
     		
     		var popup;
     		
+    		var infoWindowConent = '<div class="infowindow-content">' +
+    			'<ul>' +
+    				'<li>Type: ' + violation.get('type') + '</li>' +
+    			'</ul> </div>';
+    				
+    		//mapInfoContainer.html = "Hello Map World"
+    		
+    		
+    		
     		//Create popup on marker click
     		google.maps.event.addListener(marker, 'click', function() {
-    			popup.setContent(violation.get('description')),
+    			//context.getmapInfoContainer().setHtml('Hello Map World');
+    			
+    			//Ext.ComponentQuery.query('#mapDetail').update("Detail Says Hello");
+    			//md.update('Hellp Map Detail');
+    			//var me = this; 
+				//var labelfield = me.getmapInfoContainer(); 
+				//labelfield.setHtml('it is changing');
+    			
+    			
+    			popup.setContent(infoWindowConent),
     			popup.open(googlemap, marker)
     		});
     		
@@ -95,6 +121,7 @@ Ext.define('CleanTucson.controller.Home', {
     goHome: function() {
     	console.log('Go Home');
     	 Ext.Viewport.setActiveItem('home');
+    	 
     },
     
     onStoreTest: function() {

@@ -6,3 +6,16 @@
 	margin-top: 15px;
 	
 }
+
+
+.infowindow-content
+{
+	width: 200px;
+	height: 100px;	
+}
+
+.infowindow-content ul 
+{
+	list-style: none;
+	
+}

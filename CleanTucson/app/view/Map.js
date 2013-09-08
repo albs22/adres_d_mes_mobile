@@ -13,8 +13,18 @@ Ext.define('CleanTucson.view.Map', {
     	items: [{
     				title: 'Map',
     				xtype: 'mainTitleBar'
-    	}],
+    	},
+    	{
+    		xtype: 'panel',
+    		docked: 'bottom',
+    		height: 100,
+    		html: 'Hello Bottom Map Panel',
+    		id: 'mapDetail',
+    		autoCreate: true
     	
+    	
+    	
+    	}],
 
     			title: 'map',
     			iconcls: 'maps',
