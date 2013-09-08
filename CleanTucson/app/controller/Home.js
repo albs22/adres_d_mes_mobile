@@ -5,7 +5,8 @@ Ext.define('CleanTucson.controller.Home', {
 		refs: {
 			homeButton: 'button[action=toolBarHome]',
 			storeButton: 'button[action=testStore]',
-			mapInfoContainer: {selector: 'map #mapDetail'} 
+			mapInfoContainer: {selector: 'map #mapDetail'},
+			testPanel:  {selector: 'homePanel2 #testPanel'},
 		},
 		
 	    control: {
@@ -46,11 +47,20 @@ Ext.define('CleanTucson.controller.Home', {
     
     mapController: function(googlemap) {
     	
-    	console.log(mapInfoContainer);
+    	//console.log(mapInfoContainer);
     	//Ext.ComponentQuery.query('#mapDetail').setHtml("Detail Says Hello");
     	//Ext.getCmp("#mapDetail").setHtml("Shit");
     	//var mi = CleanTucson.view.Map.items.get(1);
     	//mi.update("Wow");
+    	
+    	//console.log(this);
+    	//var p = this.getMapInfoContainer()
+    	//console.log(p);
+    	//p.setHtml("Why??")
+    	
+    	var panelRef = this.getMapInfoContainer()
+    	
+    	
     	
     	console.log('map control');
     	var violationList = Ext.getStore('Violations');
@@ -92,6 +102,7 @@ Ext.define('CleanTucson.controller.Home', {
 				//var labelfield = me.getmapInfoContainer(); 
 				//labelfield.setHtml('it is changing');
     			
+    			panelRef.setHtml(violation.get('description'));
     			
     			popup.setContent(infoWindowConent),
     			popup.open(googlemap, marker)
@@ -126,6 +137,13 @@ Ext.define('CleanTucson.controller.Home', {
     
     onStoreTest: function() {
     	console.log('Store Test');
+    	
+    	//testPanel.setHtml('WHYYY');
+    	//Ext.ComponentQuery.query('homePanel2 #testPanel').pdate('Hello');
+    	//console.log(CleanTucson.view.Main.items.get(1));
+    	console.log(this);
+    	var p = this.getTestPanel()
+    	p.setHtml("Why??");
     	
     	var vioStore = Ext.getStore("Violations");
     	console.log('Number of Violations: ' + vioStore.getCount()); 

@@ -24,6 +24,7 @@ Ext.define('CleanTucson.view.Main', {
 			},
 			{
 				xtype: 'panel',
+				itemId: 'testPanel',
 				layout: {type: 'vbox', pack: 'center' },
 
 				items:  [
