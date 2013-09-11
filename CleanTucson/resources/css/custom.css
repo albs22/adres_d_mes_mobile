@@ -4,7 +4,6 @@
 	margin: auto;
 	margin-bottom: 15px;
 	margin-top: 15px;
-	
 }
 
 
@@ -17,5 +16,29 @@
 .infowindow-content ul 
 {
 	list-style: none;
+}
+
+#map-detail-picture
+{
+	/*width: 75px:
+	height: 50px;
+	*/
+	border: black solid 1px;
+	color: green;
+	float: left;
 	
+}
+
+.map-detail-content
+{
+	float: left;	
+	margin-left: 10px;
+	margin-right: 10px;
+	
+}
+
+#map-detail-image
+{
+	width: 30px;
+	height: 30px;	
 }

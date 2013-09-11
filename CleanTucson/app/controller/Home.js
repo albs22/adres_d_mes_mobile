@@ -101,11 +101,33 @@ Ext.define('CleanTucson.controller.Home', {
     			//var me = this; 
 				//var labelfield = me.getmapInfoContainer(); 
 				//labelfield.setHtml('it is changing');
+				
+				
+				var mapDetailHtml = 
+					'<div>'	+
+						'<div id="map-detail-picture">' +
+						'	<img id="map-detail-image"  src="resources/images/placeholder.png" />' +
+						'</div>' +
+						'<div class="map-detail-content">' +
+						'	<ul>' +
+						'		<li> Type: ' + violation.get('type') + '</li>' +
+						'		<li> Status: ' + violation.get('status') + '</li>' + 
+						'	</ul>' +
+						'</div>' +
+						'<div>' +
+						'	<ul>' +
+						'		<li>Description: ' + violation.get('description') + '</li>' +
+						'		<li>Address: ' + violation.get('address') + '</li>' +
+						'	</ul>' +	
+						'</div>' +
+					'</div>'
+						
+				
+				
+    			panelRef.setHtml(mapDetailHtml);
     			
-    			panelRef.setHtml(violation.get('description'));
-    			
-    			popup.setContent(infoWindowConent),
-    			popup.open(googlemap, marker)
+    			//popup.setContent(infoWindowConent),
+    			//popup.open(googlemap, marker)
     		});
     		
     		popup = new google.maps.InfoWindow();
