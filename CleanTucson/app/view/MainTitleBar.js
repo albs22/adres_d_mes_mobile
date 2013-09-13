@@ -8,13 +8,12 @@ Ext.define('CleanTucson.view.MainTitleBar', {
 		items: [{
 			docked: 'top',
 			xtype: 'titlebar',
+			
 			items: [{
 				align: 'left',
 				iconCls: 'home',
 				iconMask: true,
 				action: 'toolBarHome'
-				
-				
 			}]
 		}]
 	}

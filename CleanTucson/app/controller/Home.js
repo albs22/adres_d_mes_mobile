@@ -7,6 +7,7 @@ Ext.define('CleanTucson.controller.Home', {
 			storeButton: 'button[action=testStore]',
 			mapInfoContainer: {selector: 'map #mapDetail'},
 			testPanel:  {selector: 'homePanel2 #testPanel'},
+			homeTitleBar: {selector:'homePanel2 #mainBar' }
 		},
 		
 	    control: {
@@ -15,7 +16,9 @@ Ext.define('CleanTucson.controller.Home', {
                 // On the tap event, call onNewTap
                 tap: 'onNewTap'
            },
-           
+           '#btnVioList': {
+           		tap: 'onVioListTap'
+           },
            homeButton: {
            		tap: 'goHome'
            },
@@ -30,7 +33,6 @@ Ext.define('CleanTucson.controller.Home', {
     	console.log('Launch');
         // When our controller is launched, create an instance of our User view and add it to the viewport
         // which has a card layout
-       
         Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
     },
 
@@ -101,33 +103,11 @@ Ext.define('CleanTucson.controller.Home', {
     			//var me = this; 
 				//var labelfield = me.getmapInfoContainer(); 
 				//labelfield.setHtml('it is changing');
-				
-				
-				var mapDetailHtml = 
-					'<div>'	+
-						'<div id="map-detail-picture">' +
-						'	<img id="map-detail-image"  src="resources/images/placeholder.png" />' +
-						'</div>' +
-						'<div class="map-detail-content">' +
-						'	<ul>' +
-						'		<li> Type: ' + violation.get('type') + '</li>' +
-						'		<li> Status: ' + violation.get('status') + '</li>' + 
-						'	</ul>' +
-						'</div>' +
-						'<div>' +
-						'	<ul>' +
-						'		<li>Description: ' + violation.get('description') + '</li>' +
-						'		<li>Address: ' + violation.get('address') + '</li>' +
-						'	</ul>' +	
-						'</div>' +
-					'</div>'
-						
-				
-				
-    			panelRef.setHtml(mapDetailHtml);
     			
-    			//popup.setContent(infoWindowConent),
-    			//popup.open(googlemap, marker)
+    			panelRef.setHtml(violation.get('description'));
+    			
+    			popup.setContent(infoWindowConent),
+    			popup.open(googlemap, marker)
     		});
     		
     		popup = new google.maps.InfoWindow();
@@ -172,6 +152,11 @@ Ext.define('CleanTucson.controller.Home', {
     	var firstRecord = vioStore.getAt(0);
   
     	console.log('Violation #1: ' + firstRecord.get('description'));
+    },
+    
+    onVioListTap: function() {
+    	console.log("Show violation list")
+    	Ext.Viewport.setActiveItem('vioList');
     }
 
 });

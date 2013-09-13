@@ -7,8 +7,17 @@ Ext.define('CleanTucson.view.Main', {
 		
 		items: [
 			{
-				title: 'CleanTucson',
-				xtype: 'mainTitleBar'
+				
+				xtype: 'toolbar',
+				title: 'Address the Mess',
+				id: 'mainBar',
+				dock: 'top',
+				items: [{
+					align: 'left',
+					iconCls: 'home',
+					iconMask: true,
+					action: 'toolBarHome'
+				}]
 			},
 			{
 				xtype: 'button',
@@ -21,6 +30,11 @@ Ext.define('CleanTucson.view.Main', {
 				text: 'Store Test',
 				id:'btnStoreTest'
 				
+			},
+			{
+				xtype: 'button',
+				text: 'List Test',
+				id: 'btnVioList'
 			},
 			{
 				xtype: 'panel',
