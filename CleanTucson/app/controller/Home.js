@@ -144,7 +144,7 @@ Ext.define('CleanTucson.controller.Home', {
     	//Ext.ComponentQuery.query('homePanel2 #testPanel').pdate('Hello');
     	//console.log(CleanTucson.view.Main.items.get(1));
     	console.log(this);
-    	var p = this.getTestPanel()
+    	var p = this.getTestPanel();
     	p.setHtml("Why??");
     	
     	var vioStore = Ext.getStore("Violations");
@@ -155,8 +155,8 @@ Ext.define('CleanTucson.controller.Home', {
     },
     
     onVioListTap: function() {
-    	console.log("Show violation list")
-    	Ext.Viewport.setActiveItem('vioList');
+    	console.log("Show violation list");
+    	Ext.Viewport.setActiveItem('listPanel');
     }
 
 });

@@ -3,25 +3,23 @@ Ext.define('CleanTucson.controller.List', {
 	
 	config: {
 		refs: {	
-			//violationList: '#vioList2'
-			vList: { selector: 'vioList #vioList8' }
+      		listView: 'violist',
+      		listPanel: 'listPanel'
 		},
 		
 		control: {
-			vList: {
-				itemtap: 'onListItemTap'
-			}
+      		'list' : {
+       			 disclose: 'onListItemTap'
+      		}
 		}
-		
-	
-	
 	},
 	
-	onListItemTap: function(dataView, index, target, record, e, options) {
+	onListItemTap: function(list, record) {
 		console.log('List Item Tap');
+    	this.getListPanel().push({
+      		xtype: 'violationDetail',
+      		title: 'Vio Detail',
+      		data: record.getData()
+   		});
 	}
-	
-	
-	
-	
 });
