@@ -6,6 +6,6 @@ Ext.define('CleanTucson.view.ViolationList', {
   config: {
     itemTpl: '{description}',
     store: 'Violations',
-    onItemDisclosure: true,
+    onItemDisclosure: true
   }
 });

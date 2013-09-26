@@ -1,6 +1,7 @@
 Ext.define('CleanTucson.view.Detail', {
-	Extend: 'Ext.Panel',
+	extend: 'Ext.Panel',
 	xtype: 'violationDetail',
+	autoCreate: true,
 	
 	config: {
 		
