@@ -17,6 +17,12 @@ Ext.define('CleanTucson.view.ListContainer', {
     			iconCls: 'home',
     			iconMask: true,
     			action: 'toolBarHome'
+    		}, {
+    			align: 'left',
+    			iconCls: 'arrow_left',
+    			iconsMask: true,
+    			id: 'btnDetailBack',
+    			hidden: true
     		}]
   		},
         {

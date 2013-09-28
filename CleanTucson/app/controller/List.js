@@ -4,12 +4,16 @@ Ext.define('CleanTucson.controller.List', {
 	config: {
 		refs: {	
       		listView: 'violist',
-      		listPanel: 'listPanel'
+      		listPanel: 'listPanel',
+      		btnBack: '#btnDetailBack'
 		},
 		
 		control: {
       		'list' : {
        			 disclose: 'onListItemTap'
+      		},
+      		'#btnDetailBack': {
+      			tap: 'onBtnBackTap'
       		}
 		}
 	},
@@ -23,15 +27,30 @@ Ext.define('CleanTucson.controller.List', {
 		Ext.Viewport.add({
 			xtype: 'violationDetail',
 			title: 'Details',
+    			align: 'left',
 			datea: record.getData()
+    			align: 'left',
+    			align: 'left',
 		});
 		*/
+		this.getBtnBack().setHidden(false);
+		
+		//lp = this.getListPanel();
+		//lp.getBtn
+		
     	this.getListPanel().push({
       		xtype: 'violationDetail',
       		title: 'Vio Detail',
       		data: record.getData()
    		});
-   		
-   		
-	}
+   			
+	},
+	
+	onBtnBackTap: function() {
+		console.log('Back tap');
+		this.getBtnBack().setHidden(true);
+		this.getListPanel().pop();
+	},
+	
+	
 });
