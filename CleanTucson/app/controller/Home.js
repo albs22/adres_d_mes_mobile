@@ -168,7 +168,7 @@ Ext.define('CleanTucson.controller.Home', {
     
     onSubmitVioTap: function() {
     	console.log('Show violation submit');
-    	Ext.Viewport.setActiveItem('violationSubmit');
+    	Ext.Viewport.setActiveItem('submitContainer');
     }
 
 });
