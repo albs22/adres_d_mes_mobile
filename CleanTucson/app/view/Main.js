@@ -37,6 +37,11 @@ Ext.define('CleanTucson.view.Main', {
 				id: 'btnVioList'
 			},
 			{
+				xtype: 'button',
+				text: 'Submit Violation',
+				id: 'btnSubmitVio'
+			},
+			{
 				xtype: 'panel',
 				itemId: 'testPanel',
 				layout: {type: 'vbox', pack: 'center' },

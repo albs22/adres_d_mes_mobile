@@ -19,6 +19,9 @@ Ext.define('CleanTucson.controller.Home', {
            '#btnVioList': {
            		tap: 'onVioListTap'
            },
+           '#btnSubmitVio': {
+           		tap: 'onSubmitVioTap'
+           },
            homeButton: {
            		tap: 'goHome'
            },
@@ -60,7 +63,7 @@ Ext.define('CleanTucson.controller.Home', {
     	//console.log(p);
     	//p.setHtml("Why??")
     	
-    	var panelRef = this.getMapInfoContainer()
+    	var panelRef = this.getMapInfoContainer();
     	
     	
     	
@@ -103,11 +106,15 @@ Ext.define('CleanTucson.controller.Home', {
     			//var me = this; 
 				//var labelfield = me.getmapInfoContainer(); 
 				//labelfield.setHtml('it is changing');
+				
+				
+				//var mapViolationDetailHtml
+				
     			
     			panelRef.setHtml(violation.get('description'));
     			
-    			popup.setContent(infoWindowConent),
-    			popup.open(googlemap, marker)
+    			popup.setContent(infoWindowConent);
+    			popup.open(googlemap, marker);
     		});
     		
     		popup = new google.maps.InfoWindow();
@@ -157,6 +164,11 @@ Ext.define('CleanTucson.controller.Home', {
     onVioListTap: function() {
     	console.log("Show violation list");
     	Ext.Viewport.setActiveItem('listPanel');
+    },
+    
+    onSubmitVioTap: function() {
+    	console.log('Show violation submit');
+    	Ext.Viewport.setActiveItem('violationSubmit');
     }
 
 });

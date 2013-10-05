@@ -34,7 +34,7 @@ Ext.application({
  
     views: [
         'Main', 'Test', 'Map', 'MainTitleBar', 'ViolationList', 
-        'ListContainer', 'Detail'
+        'ListContainer', 'Detail', 'Submit'
     ],
     
     icon: {
