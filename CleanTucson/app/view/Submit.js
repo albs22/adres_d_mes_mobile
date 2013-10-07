@@ -6,13 +6,28 @@ Ext.define('CleanTucson.view.Submit', {
 		
 		items: [{
 			xtype: 'textfield',
-			name: 'decription',
-			label: 'Description'
+			name: 'latitude',
+			label: 'Latitude'
 		},
 		{
-			xtype: 'textareafield',
+			xtype: 'textfield',
+			name: 'longitude',
+			label: 'Longitude'
+		},
+		{
+			xtype: 'button',
+			text: 'Select location on map',
+			id: 'btnSelectLocation'
+		},
+		{
+			xtype: 'textfield',
 			name: 'address',
 			label: 'Address'
+		},
+		{	
+			xtype: 'textareafield',
+			name: 'decription',
+			label: 'Description'
 		},
 		{
 			xtype: 'selectfield',

@@ -1,26 +1,40 @@
 Ext.define('CleanTucson.view.SubmitContainer', {
-	extend: 'Ext.navigation.View',
+	//extend: 'Ext.navigation.View',
+	extend: 'Ext.tab.Panel',
 	xtype: 'submitContainer',
 	requires: ['CleanTucson.view.Submit'],
 	
 	config: {
-		navigationBar: false,
+		//navigationBar: false,
+		//fullscreen: true,
+		//title: 'Submit Tabs',
+		//styleHtmlContent: true,
 		
-		items: [{
-			xtype: 'toolbar',
-  			title: 'Violation List',
-    		dock: 'top',
-    		items: [{
-    			align: 'left',
-    			iconCls: 'home',
-    			iconMask: true,
-    			action: 'toolBarHome'
-    		}]
+		tabBar: {
+			docked: 'top',
+			layout: {
+				pack: 'center'
+			}
 		},
-		{
-			xtype: 'violationSubmit'
-		}]
-		
+		items: [
+			{
+				xtype: 'toolbar',
+	  			title: 'Violation List',
+	    		docked: 'top',
+			},
+			{
+				title: 'Map',
+				html: 'Map Here',
+			},
+			{
+				title: 'Picture',
+				html: 'Add a picture here'
+			},
+			{
+				title: 'Info',
+				xtype: 'violationSubmit'		
+			}	
+		]
 	}
 	
 });

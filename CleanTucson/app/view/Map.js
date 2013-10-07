@@ -21,9 +21,6 @@ Ext.define('CleanTucson.view.Map', {
     		html: 'Hello Bottom Map Panel',
     		id: 'mapDetail',
     		autoCreate: true
-    	
-    	
-    	
     	}],
 
     			title: 'map',
@@ -37,7 +34,6 @@ Ext.define('CleanTucson.view.Map', {
     				zoom: 9,
     				center: new google.maps.LatLng(32.2500, -111.0071), 
     				mapTypeId: google.maps.MapTypeId.ROADMAP,
-    				
     			},
     			
     			listeners: {
@@ -46,8 +42,7 @@ Ext.define('CleanTucson.view.Map', {
                 				var thisMap=this.getMap();
                  				// and then we pass the map to controller as function argument.
                 				CleanTucson.app.getController('Home').mapController(thisMap);
-    							}
-    				
+    						}
     			}
     }
 

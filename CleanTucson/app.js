@@ -28,7 +28,7 @@ Ext.application({
     
     models: ['Violation'],
     stores: ['Violations'],
-    controllers: ['Home', 'List'],
+    controllers: ['Home', 'List', 'Create'],
     //defaultUrl: 'Main/index',
 
  
