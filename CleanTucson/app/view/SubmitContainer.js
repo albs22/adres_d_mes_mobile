@@ -19,12 +19,28 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 		items: [
 			{
 				xtype: 'toolbar',
-	  			title: 'Violation List',
+	  			title: 'Submit a Mess',
 	    		docked: 'top',
+	    		items: [{
+	    			align: 'left',
+    				iconCls: 'home',
+    				iconMask: true,
+    				action: 'toolBarHome'
+	    		}]
 			},
 			{
 				title: 'Map',
-				html: 'Map Here',
+				html: 'Map Here'
+				/*items: [{
+					xtype: 'map',
+					id: 'submitMap'
+				
+					mapOptions: {
+						zoom: 9,
+    					center: new google.maps.LatLng(32.2500, -111.0071), 
+    					mapTypeId: google.maps.MapTypeId.ROADMAP
+					}	
+				}] */
 			},
 			{
 				title: 'Picture',

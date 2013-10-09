@@ -39,8 +39,8 @@ Ext.define('CleanTucson.view.Submit', {
 					value: 'weeds'
 				},
 				{
-					text: 'Trash',
-					value: 'trash',
+					text: 'Mess',
+					value: 'mess',
 				},
 				{
 					text: 'Big Item',
