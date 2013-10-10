@@ -30,17 +30,7 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 			},
 			{
 				title: 'Map',
-				html: 'Map Here'
-				/*items: [{
-					xtype: 'map',
-					id: 'submitMap'
-				
-					mapOptions: {
-						zoom: 9,
-    					center: new google.maps.LatLng(32.2500, -111.0071), 
-    					mapTypeId: google.maps.MapTypeId.ROADMAP
-					}	
-				}] */
+				xtype: 'selectLocataionMap'
 			},
 			{
 				title: 'Picture',

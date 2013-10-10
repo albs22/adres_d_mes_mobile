@@ -5,14 +5,22 @@ Ext.define('CleanTucson.view.SelectLocation', {
 	requires: ['Ext.util.GeoLocation'],
 	
 	config: {
-		items: [{
-			title: 'Select Location',
-			xtype: 'mainTitleBar'
-		},
-		{
-			
-		}],
-		
 		xtype: 'map',	
+		id: 'submitMap',
+		mapOptions: {
+			zoom: 11,
+    		center: new google.maps.LatLng(32.2500, -111.0071), 
+    		mapTypeId: google.maps.MapTypeId.ROADMAP
+		},
+		listeners: {
+			maprender : function(comp, map) {
+				console.log("Map Render");
+				var thisMap=this.getMap();
+              // and then we pass the map to controller as function argument.
+               CleanTucson.app.getController('Create').createMapController(thisMap);
+			}
+			
+			
+		}	
 	}	
 });

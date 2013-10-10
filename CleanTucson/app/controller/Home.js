@@ -5,7 +5,7 @@ Ext.define('CleanTucson.controller.Home', {
 		refs: {
 			homeButton: 'button[action=toolBarHome]',
 			storeButton: 'button[action=testStore]',
-			mapInfoContainer: {selector: 'map #mapDetail'},
+			mapInfoContainer: {selector: 'mapContainer #mapDetail'},
 			testPanel:  {selector: 'homePanel2 #testPanel'},
 			homeTitleBar: {selector:'homePanel2 #mainBar' }
 		},
