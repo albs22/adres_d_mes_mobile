@@ -2,7 +2,7 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 	//extend: 'Ext.navigation.View',
 	extend: 'Ext.tab.Panel',
 	xtype: 'submitContainer',
-	requires: ['CleanTucson.view.Submit'],
+	requires: ['CleanTucson.view.SubmitForm'],
 	
 	config: {
 		//navigationBar: false,
@@ -38,7 +38,8 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 			},
 			{
 				title: 'Info',
-				xtype: 'violationSubmit'		
+				xtype: 'violationSubmit',	
+				id: 'vioForm'	
 			}	
 		]
 	}

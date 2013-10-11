@@ -64,7 +64,7 @@ Ext.define('CleanTucson.controller.Home', {
     	//p.setHtml("Why??")
     	
     	var panelRef = this.getMapInfoContainer();
-    	
+    	console.log(panelRef);
     	
     	
     	console.log('map control');

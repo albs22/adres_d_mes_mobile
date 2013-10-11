@@ -1,4 +1,4 @@
-Ext.define('CleanTucson.view.Submit', {
+Ext.define('CleanTucson.view.SubmitForm', {
 	extend: 'Ext.form.Panel',
 	xtype: 'violationSubmit',
 	
@@ -7,17 +7,14 @@ Ext.define('CleanTucson.view.Submit', {
 		items: [{
 			xtype: 'textfield',
 			name: 'latitude',
-			label: 'Latitude'
+			label: 'Latitude',
+			id: 'latField'
 		},
 		{
 			xtype: 'textfield',
 			name: 'longitude',
-			label: 'Longitude'
-		},
-		{
-			xtype: 'button',
-			text: 'Select location on map',
-			id: 'btnSelectLocation'
+			label: 'Longitude',
+			id: 'lngField'
 		},
 		{
 			xtype: 'textfield',

@@ -7,8 +7,10 @@ Ext.define('CleanTucson.view.SelectLocation', {
 	config: {
 		xtype: 'map',	
 		id: 'submitMap',
+		getLocation: true,
+		userCurrentLocation: true,
 		mapOptions: {
-			zoom: 11,
+			zoom: 12,
     		center: new google.maps.LatLng(32.2500, -111.0071), 
     		mapTypeId: google.maps.MapTypeId.ROADMAP
 		},
