@@ -12,20 +12,32 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 		
 		tabBar: {
 			docked: 'top',
+			id: 'submitTabPanel',
 			layout: {
 				pack: 'center'
-			}
+			},
+			
 		},
 		items: [
 			{
 				xtype: 'toolbar',
 	  			title: 'Submit a Mess',
 	    		docked: 'top',
+	    		id: 'submitToolbar',
+	    		layout: {
+    				pack: 'justify',
+    				align: 'center' // align center is the default
+				},
 	    		items: [{
-	    			align: 'left',
     				iconCls: 'home',
     				iconMask: true,
     				action: 'toolBarHome'
+	    		}, {
+	    			xtype: 'spacer'
+	    		}, {
+	    			ui: 'forward',
+	    			text: 'Next',
+	    			id: 'btnSubmitNext'
 	    		}]
 			},
 			{
@@ -34,12 +46,18 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 			},
 			{
 				title: 'Picture',
+				id: 'submitPictureTab',
 				html: 'Add a picture here'
 			},
 			{
 				title: 'Info',
 				xtype: 'violationSubmit',	
-				id: 'vioForm'	
+				id: 'vioForm',
+				listeners: {
+				  activate: function(){
+                        //CleanTucson.app.getController('Create').onTabLoad(this);
+                 }
+			},
 			}	
 		]
 	}
