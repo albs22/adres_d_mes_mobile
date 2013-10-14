@@ -11,7 +11,7 @@ Ext.define('CleanTucson.controller.Create', {
 			tabPanel:   {selector: 'submitContainer #submitTabPanel' 	},
 			pictureTab: {selector: 'submitContainer #submitPictureTab'	},
 			formTab:	{selector: 'submitContainer #subitFormTab'		},
-			btnNext:	{selector: 'submitContainer #btnSubmitNext'		}	
+			btnNext:	{selector: 'submitContainer #btnSubmitNext'		}
 			
 		},
 		
@@ -22,11 +22,7 @@ Ext.define('CleanTucson.controller.Create', {
 			
 			'#btnSubmitNext': {
 				tap: 'onSubmitNext'
-			},
-			'#subitFormTab':	 {
-				activate: 'onTabLoad'
 			}
-			
 		}	
 	},
 	
@@ -75,8 +71,8 @@ Ext.define('CleanTucson.controller.Create', {
 		console.log('On tab load');
 		
 		
-		var tp = this.getTabPanel();Ext.getCmp(tabPanel);//context;//context.getTabPanel();
-		var tabIndex = tp.items.indexOf(tp.getAthisctiveTab());
+		var tp = this.getTabPanel();//Ext.getCmp(tabPanel);//context;//context.getTabPanel();
+		var tabIndex = tp.items.indexOf(tp.getActiveTab());
 		var bn = this.getBtnNext();
 		
 		if (tabIndex == 2) {

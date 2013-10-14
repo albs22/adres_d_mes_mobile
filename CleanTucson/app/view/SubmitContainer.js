@@ -15,8 +15,7 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 			id: 'submitTabPanel',
 			layout: {
 				pack: 'center'
-			},
-			
+			}
 		},
 		items: [
 			{
@@ -42,22 +41,32 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 			},
 			{
 				title: 'Map',
-				xtype: 'selectLocataionMap'
+				xtype: 'selectLocataionMap',
+				listeners: {
+				 	painted: function(){
+                        CleanTucson.app.getController('Create').onTabLoad(this);
+                 	}
+				},
 			},
 			{
 				title: 'Picture',
 				id: 'submitPictureTab',
-				html: 'Add a picture here'
+				html: 'Add a picture here',
+				listeners: {
+				 	painted: function(){
+                        CleanTucson.app.getController('Create').onTabLoad(this);
+                 	}
+				},
 			},
 			{
 				title: 'Info',
 				xtype: 'violationSubmit',	
-				id: 'vioForm',
+				id: 'subitFormTab',
 				listeners: {
-				  activate: function(){
-                        //CleanTucson.app.getController('Create').onTabLoad(this);
-                 }
-			},
+				 	painted: function(){
+                        CleanTucson.app.getController('Create').onTabLoad(this);
+                 	}
+				},
 			}	
 		]
 	}
