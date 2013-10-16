@@ -11,18 +11,43 @@ Ext.define('CleanTucson.view.ListContainer', {
         items: [{
         	xtype: 'toolbar',
   			title: 'Violation List',
-    		dock: 'top',
+    		docked: 'top',
+    		layout: {
+    			pack: 'right'
+    			//align: 'left'
+    		},
     		items: [{
     			align: 'left',
     			iconCls: 'home',
     			iconMask: true,
-    			action: 'toolBarHome'
+    			action: 'toolBarHome',
+    			
     		}, {
     			align: 'left',
     			iconCls: 'arrow_left',
     			iconsMask: true,
     			id: 'btnDetailBack',
-    			hidden: true
+    			hidden: true,
+    			
+    		},	
+    		/*
+    		
+    			xtype: 'spacer'
+    		}, {
+    			xtype: 'spacer'
+    		},
+    		*/
+    		
+    		{
+    			align: 'right',
+    			text: 'Update',
+    			itemId: 'btnDetailUpdate',
+    			ui: 'confirm',
+    			hidden: true,
+    			
+    			
+    		
+    		
     		}]
   		},
         {

@@ -8,7 +8,9 @@ Ext.define('CleanTucson.model.Violation', {
 			{ name: 'description', 	type: 'string' },
 			{ name: 'status',		type: 'string' },
 			{ name: 'type', 		type: 'string' },
-			{ name: 'address', 		type: 'string' }
+			{ name: 'address', 		type: 'string' },
+			{ name: 'dateEntered',	type: 'date'   },
+			{ name: 'dateClosed',	type: 'date'   }		
 		]
 	}
 });
