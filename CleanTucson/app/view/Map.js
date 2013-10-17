@@ -11,14 +11,43 @@ Ext.define('CleanTucson.view.Map', {
     config: {
      
     	items: [{
-    				title: 'Map',
-    				xtype: 'mainTitleBar'
+			xtype: 'toolbar',
+			docked: 'top',
+			title: 'Map',
+			layout: {
+				pack: 'justify'
+			},
+			items: [{
+				iconCls: 'home',
+				iconMask: true,
+				action: 'toolBarHome'
+			}, { xtype: 'spacer' }, 
+			{
+				text: 'Details',
+				id: 'btnMapDetail',
+				disabled: true
+			}]
     	},
     	{
     		xtype: 'panel',
     		docked: 'bottom',
     		height: 100,
-    		html: 'Hello Bottom Map Panel',
+    		html: "<div id='map-vio-detail-container'>" +
+						"<table class='vio-table'>" +
+    					"  <tr class='vio-row'>" +
+      					"	<td class='vio-type'>Address</td>" +
+      					"   <td class='vio-data-left'></td>" +
+      					"  	<td class='vio-type'>Status</td>" +
+      					"	<td class='vio-data-right'></td>" +
+      					"  </tr>" +
+      					"  <tr class='vio-row'>" +
+      					"	<td class='vio-type'>Description</td>" +
+      					"	<td class='vio-data-left'></td>" +
+      					"	<td class='vio-type'>Type</td>" +
+      					"   <td class='vio-data-right'></td>" +
+      					"  </tr>" +
+      					"</table>" +
+      					"</div>",
     		id: 'mapDetail',
     		autoCreate: true
     	}],

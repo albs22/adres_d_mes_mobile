@@ -7,7 +7,10 @@ Ext.define('CleanTucson.controller.Home', {
 			storeButton: 'button[action=testStore]',
 			mapInfoContainer: {selector: 'mapContainer #mapDetail'},
 			testPanel:  {selector: 'homePanel2 #testPanel'},
-			homeTitleBar: {selector:'homePanel2 #mainBar' }
+			homeTitleBar: {selector:'homePanel2 #mainBar' },
+			btnShowDetail: '#btnMapDetail',
+			submitContain: 'submitContainer',
+			mapDetail: 'violationMapDetail'
 		},
 		
 	    control: {
@@ -28,7 +31,14 @@ Ext.define('CleanTucson.controller.Home', {
            
            storeButton: {
            		tap: 'onStoreTest'
+           },
+           '#btnMapDetail': {
+           		tap: 'onBtnShowDetailTap'
+           },
+           mapDetail: {
+           		show: 'onMapDetailShow'
            }
+           
       }
 	},
 	
@@ -63,8 +73,10 @@ Ext.define('CleanTucson.controller.Home', {
     	//console.log(p);
     	//p.setHtml("Why??")
     	
+    	this.test1 = 42;
     	var panelRef = this.getMapInfoContainer();
     	console.log(panelRef);
+    	var btnShowDetailRef = this.getBtnShowDetail();
     	
     	
     	console.log('map control');
@@ -76,6 +88,9 @@ Ext.define('CleanTucson.controller.Home', {
     		addMarker(violationList.getAt(i));
     	}
     	
+    	//var currentViolationRef = this.getController('CleanTucson.controller.Home').getInternalVar();
+    	var scopeRef = this;
+
     	function addMarker(violation) {
     		var latLng = new google.maps.LatLng(violation.get('lat'), violation.get('lng'));
     		
@@ -107,17 +122,34 @@ Ext.define('CleanTucson.controller.Home', {
 				//var labelfield = me.getmapInfoContainer(); 
 				//labelfield.setHtml('it is changing');
 				
+        			var mapDetailHtml = 
+        				"<div id='map-vio-detail-container'>" +
+						"<table class='vio-table'>" +
+    					"  <tr class='vio-row'>" +
+      					"	<td class='vio-type'>Address</td>" +
+      					"   <td class='vio-data-left'>"+ violation.get('address') + "</td>" +
+      					"  	<td class='vio-type'>Status</td>" +
+      					"	<td class='vio-data-right'>" + violation.get('status') + "</td>" +
+      					"  </tr>" +
+      					"  <tr class='vio-row'>" +
+      					"	<td class='vio-type'>Description</td>" +
+      					"	<td class='vio-data-left'>" + violation.get('description') + "</td>" +
+      					"	<td class='vio-type'>Type</td>" +
+      					"   <td class='vio-data-right'>" + violation.get('type') + "</td>" +
+      					"  </tr>" +
+      					"</table>" +
+      					"</div>";
 				
-				//var mapViolationDetailHtml
 				
+				scopeRef.currentViolation = violation;
+    			btnShowDetailRef.setDisabled(false);
+    			panelRef.setHtml(mapDetailHtml);
     			
-    			panelRef.setHtml(violation.get('description'));
-    			
-    			popup.setContent(infoWindowConent);
-    			popup.open(googlemap, marker);
+    			//popup.setContent(infoWindowConent);
+    			//popup.open(googlemap, marker);
     		});
     		
-    		popup = new google.maps.InfoWindow();
+    		//popup = new google.maps.InfoWindow();
     	}
     	
     	
@@ -169,6 +201,58 @@ Ext.define('CleanTucson.controller.Home', {
     onSubmitVioTap: function() {
     	console.log('Show violation submit');
     	Ext.Viewport.setActiveItem('submitContainer');
+    },
+    
+    onBtnShowDetailTap: function() {
+    	console.log('Tap Detail');
+    	console.log(this.currentViolation);
+    	
+    	
+    	var detailView = Ext.create('CleanTucson.view.MapDetail');
+    	detailView.setRecord(this.currentViolation);
+    	Ext.Viewport.setActiveItem(detailView);
+    	
+    	
+    	//console.log(this.getController('Home').currentViolation);
+    	
+    	/*
+    	console.log(this.test1);
+    	console.log(this.getController('Home').test1);
+    	console.log(this.getController('Home').getTest1());
+    	//var detailView = Ext.create('CleanTucson.view.Detail');
+    	//detailView.setRecord()
+    	*/
+    	
+    	
+    	
+    	
+    	
+    },
+    
+    onMapDetailShow: function()
+    {
+    	console.log("Show Detail");
+    	var record = this.currentViolation;
+    	console.log(record);
+    	
+    	/*
+    	this.getDateEnteredField().setValue(record.get('dateEntered'));
+   		this.getLatField().setValue(record.get('lat'));
+   		this.getLngField().setValue(record.get('lng'));
+   		this.getAddressField().setValue(record.get('address'));
+   		this.getDescriptionField().setValue(record.get('description'));
+   		this.getSelectField().setValue(record.get('type'));
+   		var toggle = this.getToggleField();
+   		
+   		if (record.get('status') == "closed") {
+   			toggle.setValue(1);
+   		}
+   		*/
+    	
+    	
+    	
+    	
+    	
     }
 
 });
