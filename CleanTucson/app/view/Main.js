@@ -2,6 +2,7 @@ Ext.define('CleanTucson.view.Main', {
 	extend: 'Ext.Panel',
 	xtype: 'homePanel2',
 	alias: 'widget.home',
+	cls: 'main-panel',
 	
 	config: {
 		
@@ -20,48 +21,41 @@ Ext.define('CleanTucson.view.Main', {
 				}]
 			},
 			{
-				xtype: 'button',
-                text: 'Launch Map',
-                id: 'new',
-                cls: 'main-button'
-			},
-			{
-				xtype: 'button',
-				text: 'Store Test',
-				id:'btnStoreTest'
-				
-			},
-			{
-				xtype: 'button',
-				text: 'List Test',
-				id: 'btnVioList'
-			},
-			{
-				xtype: 'button',
-				text: 'Submit Violation',
-				id: 'btnSubmitVio'
-			},
-			{
 				xtype: 'panel',
-				itemId: 'testPanel',
-				layout: {type: 'vbox', pack: 'center' },
-
-				items:  [
-							{
-								xtype: 'spacer',
-								height: 100
-								
-							},
-							{
-								xtype: 'button',
-								text: "World",
-								cls: 'main-button',
-								align: 'center',
-								width: 150,
-								action: 'testStore'
-								
-							}]
+				docked: 'bottom',
+				
+				layout: {
+					type: 'hbox',
+					pack: 'center'
+				},
+				items: [{
+		
+					xtype: 'button',
+					html: "<img class='button-image' src='resources/images/mapicon2.png' /> <p>Map</p>",
+	                id: 'new',
+	                cls: 'main-button',
+	               
+				},
+				{
+					xtype: 'button',
+					html: "<img class='button-image' src='resources/images/listicon.png' /> <p>List</p>",
+					id: 'btnVioList',
+					cls: 'main-button'
+				},
+				{
+					xtype: 'button',
+					html: "<img class='button-image' src='resources/images/submitmess.png' /> <p>Submit</p>",
+					id: 'btnSubmitVio',
+					cls: 'main-button',
+					
+				
+					
+				}]
+			
+			
 			}]	
+			
+			
 	}	
 	
 });

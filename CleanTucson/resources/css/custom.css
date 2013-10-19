@@ -1,11 +1,24 @@
 .main-button
 {
-	/*width: 75%;*/
+	width: 110px;
+	height: 110px;
 	margin: auto;
 	margin-bottom: 15px;
 	margin-top: 15px;
 }
 
+.button-image
+{
+	width: 78px;
+	height: 78px;
+	margin-bottom: -5px;
+}
+
+.main-panel
+{
+	background: url('../images/mainbackground.jpg') no-repeat center;
+	
+}
 
 .infowindow-content
 {
