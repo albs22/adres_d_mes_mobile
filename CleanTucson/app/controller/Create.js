@@ -1,10 +1,17 @@
 Ext.define('CleanTucson.controller.Create', {
 	extend: 'Ext.app.Controller',
+	require: ['CleanTucson.model.Violation'],
 	
 	
 	
 	
 	config: {
+		  models: [
+            'Violation'
+        ],
+        stores: [
+            'Violations'
+        ],
 		refs: {
 			latField:   {selector: 'violationSubmit #latField' 			},
 			lngField:   {selector: 'violationSubmit #lngField' 			},
@@ -63,12 +70,72 @@ Ext.define('CleanTucson.controller.Create', {
 		}
 		else if (tabIndex ==2) {
 			console.log('Submit');
-			var formValues = this.getFromRef().getValues();
+			var formValues = this.getFormRef().getValues();
 			console.log(formValues);
-			var newVio = Ext.create('Violation', 
-				{type: formValues.type  });
 			
-			newVio.save();
+			var newVio = Ext.create('CleanTucson.model.Violation', {
+				lat: formValues.latitude,
+				long: formValues.latitude,
+				violation_type: formValues.violation_type,
+				description: formValues.description,
+				violation_address: formValues.violation_address
+			});
+			
+				
+			console.log(newVio);
+				console.log(formValues.type);
+			var store = Ext.getStore('Violations');
+			store.add(newVio);
+			store.sync();
+			
+			
+			Ext.Viewport.remove(Ext.Viewport.getActiveItem(),true);
+			Ext.Viewport.setActiveItem('home');
+			
+	
+	/*
+      Ext.Ajax.request({
+        url:  'http://0.0.0.0:3000/api/violations/',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json;charset=utf-8' },
+         params: JSON.stringify({
+        //   violation: [{
+	          lat: '32',
+	          long: '-110',
+	          violation_type: 'Mess',
+	          violation_address: 'Catillina'
+	      //  }]
+         }),
+        
+        /*
+        params: {
+          violation: [{
+          'lat': '32',
+          long: '-110',
+          violation_type: 'Mess',
+          violation_address: 'Catillina'
+         }]
+         
+        /*
+          violation: [{
+            violation_address: formValues.address,
+            lat: formValues.latitude,
+            long: formValues.longitude,
+            violation_type: formValues.type
+            */
+          
+        //},
+        /*
+        success: function(response) {
+          console.log('Success: ' + response.responseText);
+        },
+
+        failure: function(response) {
+          console.log('Failure: ' + response.responseText);
+         }
+      });
+			
+		*/	
 			 
 				
 		}

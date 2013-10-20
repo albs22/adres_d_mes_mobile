@@ -23,7 +23,7 @@ Ext.define('CleanTucson.view.SubmitForm', {
 		},
 		{	
 			xtype: 'textareafield',
-			name: 'decription',
+			name: 'description',
 			label: 'Description'
 		},
 		{

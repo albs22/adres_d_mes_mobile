@@ -11,16 +11,26 @@ Ext.define('CleanTucson.store.Violations', {
 				type: 'ajax',
 				//callbackKey: 'callback',
 				url: 'http://0.0.0.0:3000/api/violations',
+				/*
 				api: {
-					create: 'http://0.0.0.0:3000/api/violations/create',
-					read: 'http://0.0.0.0:3000/api/violations',
-				}
+					create: 'http://0.0.0.0:3000/api/violations',
+					read: 'http://0.0.0.0:3000/api/violations'
+				},
+				*/
 				
 				reader: {
 					type: 'json',
 					rootProperty: 'violations',
 					totalProperty: 'violation'
+				},
+				
+				writer: {
+					type: 'json',
+					rootProperty : 'violation'
+					
 				}
+				
+				
 				
 		}
 		
