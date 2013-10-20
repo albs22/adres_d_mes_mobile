@@ -11,7 +11,8 @@ Ext.define('CleanTucson.controller.Create', {
 			tabPanel:   {selector: 'submitContainer #submitTabPanel' 	},
 			pictureTab: {selector: 'submitContainer #submitPictureTab'	},
 			formTab:	{selector: 'submitContainer #subitFormTab'		},
-			btnNext:	{selector: 'submitContainer #btnSubmitNext'		}
+			btnNext:	{selector: 'submitContainer #btnSubmitNext'		},
+			formRef: 	'violationSubmit'
 			
 		},
 		
@@ -61,8 +62,18 @@ Ext.define('CleanTucson.controller.Create', {
 			//ft.show();
 		}
 		else if (tabIndex ==2) {
+			console.log('Submit');
+			var formValues = this.getFromRef().getValues();
+			console.log(formValues);
+			var newVio = Ext.create('Violation', 
+				{type: formValues.type  });
 			
+			newVio.save();
+			 
+				
 		}
+		
+		
 		
 		
 	},

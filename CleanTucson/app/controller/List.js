@@ -13,7 +13,8 @@ Ext.define('CleanTucson.controller.List', {
       		addressField:	'#addressFieldDetail',
       		descriptionField: '#descriptionFieldDetail',
       		selectField:	'#selectFieldDetail',
-      		toggleField:	'#toggleFieldDetail'
+      		toggleField:	'#toggleFieldDetail',
+      		imagePanel: 	'#beforeImgPanel'
       		
 		},
 		
@@ -27,6 +28,7 @@ Ext.define('CleanTucson.controller.List', {
 		}
 	},
 	
+	//Show detail page
 	onListItemTap: function(list, record) {
 		console.log('List Item Tap');
 		
@@ -60,7 +62,8 @@ Ext.define('CleanTucson.controller.List', {
    		this.getAddressField().setValue(record.get('address'));
    		this.getDescriptionField().setValue(record.get('description'));
    		this.getSelectField().setValue(record.get('type'));
-   		var toggle = this.getToggleField();
+   		this.getImagePanel().setHtml("<img style='height: 100px;' src='" + record.get('image_before_url') + "' />");
+   		   		var toggle = this.getToggleField();
    		
    		if (record.get('status') == "closed") {
    			toggle.setValue(1);

@@ -3,90 +3,101 @@ Ext.define('CleanTucson.view.MapDetail', {
 	xtype: 'violationMapDetail',
 	
 	config: {
-		/*
-		items: [{ 
 		
-			xtype: 'toolbar',
-        	//xtype: 'titlebar',
-  			title: 'Violation List',
-    		docked: 'top',
-    		layout: {
-    			//pack: 'justify'
-    			//align: 'left'
-    		},
+		items: [
+		
+			{ 
+		
+				xtype: 'toolbar',
+	        	//xtype: 'titlebar',
+	  			title: 'Violation List',
+	    		docked: 'top',
+	    		layout: {
+	    			//pack: 'justify'
+	    			//align: 'left'
+	    		},
+	   		
+    		
     		items: [
     		
-    		{
-    			align: 'left',
-    			iconCls: 'home',
-    			iconMask: true,
-    			action: 'toolBarHome',
-    			
-    		}, 
-    		
-    		{
-    			align: 'left',
-    			iconCls: 'arrow_left',
-    			iconsMask: true,
-    			id: 'btnDetailBack',
-    			hidden: true,
-    			
-    		},	
-    		
-    		{
-    			xtype: 'spacer'
-    		},
-    		
-    		
-    		{
-    			align: 'right',
-    			text: 'Update',
-    			itemId: 'btnDetailUpdate',
-    			ui: 'confirm',
-    			hidden: true,
-    			
-    		}],
+	    		{
+	    			align: 'left',
+	    			id: 'btnMapDetailBack',
+    				iconCls: 'arrow_left',
+    				iconsMask: true,
+	    			listeners: {
+	    				tap: function() {
+	    					console.log('Map Detail Back');
+	    					Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);  
+    						Ext.Viewport.setActiveItem('mymap');
+	    				}
+	    			}
+	    			
+	    		}, 
+	    		
+	    		{
+	    			align: 'left',
+	    			iconCls: 'arrow_left',
+	    			iconsMask: true,
+	    			id: 'btnDetailBack',
+	    			hidden: true,
+	    			
+	    		},	
+	    		
+	    		{
+	    			xtype: 'spacer'
+	    		},
+	    		
+	    		
+	    		{
+	    			align: 'right',
+	    			text: 'Update',
+	    			itemId: 'btnDetailUpdate',
+	    			ui: 'confirm',
+	    			hidden: true,
+	    			
+	    	}],
 		
-		*/
 		
 		
+		},
 		
-		items: [{
+		{
 			xtype: 'datepickerfield',
 			name: 'submitedDate',
 			label: 'Entered Date',				
-			itemId: 'enteredDateDetail'
+			id: 'enteredDateMapDetail'
 		},
 		{
 			xtype: 'textfield',
 			name: 'latitude',
 			label: 'Latitude',
-			itemId: 'latFieldDetail',
+			id: 'latFieldMapDetail',
 			
 		},
 		{
 			xtype: 'textfield',
 			name: 'longitude',
 			label: 'Longitude',
-			itemId: 'lngFieldDetail'
+			id: 'lngFieldMapDetail'
 		},
 		{
 			xtype: 'textfield',
 			name: 'address',
 			label: 'Address',
-			itemId: 'addressFieldDetail'
+			id: 'addressFieldMapDetail'
 		},
 		{	
 			xtype: 'textareafield',
 			name: 'decription',
 			label: 'Description',
-			itemId: 'descriptionFieldDetail',
+			id: 'descriptionFieldMapDetail',
 		},
 		{
 			xtype: 'selectfield',
 			name: 'type',
 			label: 'Type',
-			itemId: 'selectFieldDetail',
+			id: 'selectFieldMapDetail',
 			options: [
 				{
 					text: 'Weeds',
@@ -107,7 +118,7 @@ Ext.define('CleanTucson.view.MapDetail', {
 			xtype: 'togglefield',
 			label: 'Cleaned Up',
 			value: 0,
-			itemId: 'toggleFieldDetail'
+			id: 'toggleFieldMapDetail'
 		}
 		
 		

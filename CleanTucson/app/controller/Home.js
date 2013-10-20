@@ -10,7 +10,14 @@ Ext.define('CleanTucson.controller.Home', {
 			homeTitleBar: {selector:'homePanel2 #mainBar' },
 			btnShowDetail: '#btnMapDetail',
 			submitContain: 'submitContainer',
-			mapDetail: 'violationMapDetail'
+			mapDetail: 'violationMapDetail',
+			dateEnteredField:		'#enteredDateMapDetail',
+      		latField: 		'#latFieldMapDetail',
+      		lngField: 		'#lngFieldMapDetail',
+      		addressField:	'#addressFieldMapDetail',
+      		descriptionField: '#descriptionFieldMapDetail',
+      		selectField:	'#selectFieldMapDetail',
+      		toggleField:	'#toggleFieldMapDetail'
 		},
 		
 	    control: {
@@ -37,6 +44,9 @@ Ext.define('CleanTucson.controller.Home', {
            },
            mapDetail: {
            		show: 'onMapDetailShow'
+           },
+           '#btnMapDetailBack': {
+           		//tap: 'onMapDetailBack'
            }
            
       }
@@ -81,9 +91,10 @@ Ext.define('CleanTucson.controller.Home', {
     	
     	console.log('map control');
     	var violationList = Ext.getStore('Violations');
-    	
+    	//violationList.load();
     	
     	for (var i = 0, ln = violationList.getCount(); i < ln; i++) {
+    		//console.log(violationList[i].data);
     		console.log(violationList.getAt(i));
     		addMarker(violationList.getAt(i));
     	}
@@ -92,7 +103,7 @@ Ext.define('CleanTucson.controller.Home', {
     	var scopeRef = this;
 
     	function addMarker(violation) {
-    		var latLng = new google.maps.LatLng(violation.get('lat'), violation.get('lng'));
+    		var latLng = new google.maps.LatLng(violation.get('lat'), violation.get('long'));
     		
     		//create new marker
     		var marker = new google.maps.Marker({
@@ -235,7 +246,6 @@ Ext.define('CleanTucson.controller.Home', {
     	var record = this.currentViolation;
     	console.log(record);
     	
-    	/*
     	this.getDateEnteredField().setValue(record.get('dateEntered'));
    		this.getLatField().setValue(record.get('lat'));
    		this.getLngField().setValue(record.get('lng'));
@@ -247,12 +257,13 @@ Ext.define('CleanTucson.controller.Home', {
    		if (record.get('status') == "closed") {
    			toggle.setValue(1);
    		}
-   		*/
     	
-    	
-    	
-    	
-    	
+    },
+    
+    onMapDetailBack: function() {
+    	console.log('Map Detail Back');
+    	Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);  
+    	Ext.Viewport.setActiveItem('mymap');
     }
 
 });

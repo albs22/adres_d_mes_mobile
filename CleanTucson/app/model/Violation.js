@@ -2,15 +2,17 @@ Ext.define('CleanTucson.model.Violation', {
 	extend: 'Ext.data.Model',
 	config: {
 		fields: [
-			{ name: 'id', 			type: 'int'    },
-			{ name: 'lat', 			type: 'float'  },
-			{ name: 'lng', 			type: 'float'  },
-			{ name: 'description', 	type: 'string' },
-			{ name: 'status',		type: 'string' },
-			{ name: 'type', 		type: 'string' },
-			{ name: 'address', 		type: 'string' },
-			{ name: 'dateEntered',	type: 'date'   },
-			{ name: 'dateClosed',	type: 'date'   }		
+			{ name: 'date_entered',			type: 'date'   },
+			{ name: 'description', 			type: 'string' },
+			{ name: 'id', 					type: 'int'    },
+			{ name: 'lat', 					type: 'float'  },
+			{ name: 'long', 				type: 'float'  },
+			{ name: 'status',				type: 'string' },
+			{ name: 'violation_type', 				type: 'string' },
+			{ name: 'violation_address', 	type: 'string' },
+			{ name: 'image_before_url', 	type: 'string'}	
+			//{ name: 'dateClosed',		type: 'date'   },
+				
 		]
 	}
 });
