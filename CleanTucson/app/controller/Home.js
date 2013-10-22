@@ -103,13 +103,14 @@ Ext.define('CleanTucson.controller.Home', {
     	var scopeRef = this;
 
     	function addMarker(violation) {
-    		var latLng = new google.maps.LatLng(violation.get('lat'), violation.get('long'));
+    		console.log('Add Marker');
+    		var latLng = new google.maps.LatLng(violation.get('lat'), violation.get('lng'));
     		
     		//create new marker
     		var marker = new google.maps.Marker({
     			position: latLng,
     			map: googlemap,
-    			title: violation.get('type')
+    			title: violation.get('violation_type')
     		});
     		
     		var popup;
@@ -138,7 +139,7 @@ Ext.define('CleanTucson.controller.Home', {
 						"<table class='vio-table'>" +
     					"  <tr class='vio-row'>" +
       					"	<td class='vio-type'>Address</td>" +
-      					"   <td class='vio-data-left'>"+ violation.get('address') + "</td>" +
+      					"   <td class='vio-data-left'>"+ violation.get('violation_address') + "</td>" +
       					"  	<td class='vio-type'>Status</td>" +
       					"	<td class='vio-data-right'>" + violation.get('status') + "</td>" +
       					"  </tr>" +
@@ -146,7 +147,7 @@ Ext.define('CleanTucson.controller.Home', {
       					"	<td class='vio-type'>Description</td>" +
       					"	<td class='vio-data-left'>" + violation.get('description') + "</td>" +
       					"	<td class='vio-type'>Type</td>" +
-      					"   <td class='vio-data-right'>" + violation.get('type') + "</td>" +
+      					"   <td class='vio-data-right'>" + violation.get('violation_type') + "</td>" +
       					"  </tr>" +
       					"</table>" +
       					"</div>";
@@ -249,9 +250,9 @@ Ext.define('CleanTucson.controller.Home', {
     	this.getDateEnteredField().setValue(record.get('dateEntered'));
    		this.getLatField().setValue(record.get('lat'));
    		this.getLngField().setValue(record.get('lng'));
-   		this.getAddressField().setValue(record.get('address'));
+   		this.getAddressField().setValue(record.get('violation_address'));
    		this.getDescriptionField().setValue(record.get('description'));
-   		this.getSelectField().setValue(record.get('type'));
+   		this.getSelectField().setValue(record.get('violation_type'));
    		var toggle = this.getToggleField();
    		
    		if (record.get('status') == "closed") {

@@ -41,7 +41,7 @@ Ext.define('CleanTucson.view.SubmitForm', {
 				},
 				{
 					text: 'Big Item',
-					value: 'bitItem'
+					value: 'bigItem'
 				}
 			]
 			

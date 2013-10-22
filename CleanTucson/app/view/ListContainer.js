@@ -32,6 +32,7 @@ Ext.define('CleanTucson.view.ListContainer', {
     			iconCls: 'arrow_left',
     			iconsMask: true,
     			id: 'btnDetailBack',
+    			action: 'listBack',
     			hidden: true,
     			
     		},	
@@ -47,6 +48,7 @@ Ext.define('CleanTucson.view.ListContainer', {
     			itemId: 'btnDetailUpdate',
     			ui: 'confirm',
     			hidden: true,
+    			action: 'detailUpdate'
     			
     		}]
   		},

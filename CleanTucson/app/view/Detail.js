@@ -63,14 +63,26 @@ Ext.define('CleanTucson.view.Detail', {
 		},
 		{
 			xtype: 'togglefield',
+			name: 'status',
 			label: 'Cleaned Up',
 			value: 0,
-			itemId: 'toggleFieldDetail'
+			id: 'toggleFieldDetail'
 		},
 		{
-			xtype: 'panel',
-			id: 'beforeImgPanel'
+			xtype:'panel',
+			layout: {
+				type: 'hbox'
+			},
+			items: [{
+				xtype: 'panel',
+				id: 'beforeImgPanel'
+			}, {
+				xtype: 'panel',
+				id: 'afterImgPanel'
+			}]
 		}
+		
+		
 		
 		
 		

@@ -18,7 +18,7 @@ Ext.define('CleanTucson.controller.Create', {
 			tabPanel:   {selector: 'submitContainer #submitTabPanel' 	},
 			pictureTab: {selector: 'submitContainer #submitPictureTab'	},
 			formTab:	{selector: 'submitContainer #subitFormTab'		},
-			btnNext:	{selector: 'submitContainer #btnSubmitNext'		},
+			btnNext:	'button[action=createNext]',
 			formRef: 	'violationSubmit'
 			
 		},
@@ -75,10 +75,11 @@ Ext.define('CleanTucson.controller.Create', {
 			
 			var newVio = Ext.create('CleanTucson.model.Violation', {
 				lat: formValues.latitude,
-				long: formValues.latitude,
-				violation_type: formValues.violation_type,
+				lng: formValues.longitude,
+				violation_type: formValues.type,
 				description: formValues.description,
-				violation_address: formValues.violation_address
+				violation_address: formValues.address,
+				status: 'open'
 			});
 			
 				

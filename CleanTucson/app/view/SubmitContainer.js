@@ -36,7 +36,8 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 	    		}, {
 	    			ui: 'forward',
 	    			text: 'Next',
-	    			id: 'btnSubmitNext'
+	    			id: 'btnSubmitNext',
+	    			action: 'createNext'
 	    		}]
 			},
 			{
