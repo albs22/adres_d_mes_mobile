@@ -20,7 +20,7 @@ Ext.define('CleanTucson.view.Main', {
 					action: 'toolBarHome'
 				}]
 			},
-			{
+			//{
 				
 				/*xtype: 'container',
 				docked: 'bottom',
@@ -32,18 +32,19 @@ Ext.define('CleanTucson.view.Main', {
 				items: [{
 					*/
 		
-					xtype: 'button',
-					html: "<img class='button-image' src='resources/images/mapicon2.png' /> <p>Map</p>",
-	                id: 'new',
-	                cls: 'main-button',
+					//xtype: 'button',
+				//	html: "<img class='button-image' src='resources/images/mapicon2.png' /> <p>Map</p>",
+	             //   id: 'new',
+	             //   cls: 'main-button',
 	               
-				},
+				//},
 				{
 					xtype: 'button',
 					html: "<img class='button-image' src='resources/images/listicon.png' /> <p>List</p>",
 					id: 'btnVioList',
 					cls: 'main-button'
 				},
+				
 				{
 					xtype: 'button',
 					html: "<img class='button-image' src='resources/images/submitmess.png' /> <p>Submit</p>",
