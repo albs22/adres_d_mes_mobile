@@ -21,12 +21,12 @@ Ext.define('CleanTucson.view.Main', {
 				}]
 			},
 			{
-				xtype: 'panel',
+				xtype: 'container',
 				docked: 'bottom',
 				
 				layout: {
-					type: 'hbox',
-					pack: 'center'
+					//type: 'hbox',
+					//pack: 'justify'
 				},
 				items: [{
 		
