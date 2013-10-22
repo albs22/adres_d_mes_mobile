@@ -2,7 +2,10 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 	//extend: 'Ext.navigation.View',
 	extend: 'Ext.tab.Panel',
 	xtype: 'submitContainer',
-	requires: ['CleanTucson.view.SubmitForm'],
+	requires: [
+		'CleanTucson.view.SubmitForm',
+		'CleanTucson.view.CameraContainer'
+	],
 	
 	config: {
 		//navigationBar: false,
@@ -51,13 +54,17 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 			},
 			{
 				title: 'Picture',
+				xtype: 'cameraContainer',
 				id: 'submitPictureTab',
-				html: 'Add a picture here',
+				//html: 'Add a picture here',
 				listeners: {
 				 	painted: function(){
                         CleanTucson.app.getController('Create').onTabLoad(this);
                  	}
 				},
+				//items: [{
+				//	xtype: 'mycamera'
+				//}]
 			},
 			{
 				title: 'Info',

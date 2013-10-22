@@ -19,7 +19,11 @@ Ext.define('CleanTucson.controller.Create', {
 			pictureTab: {selector: 'submitContainer #submitPictureTab'	},
 			formTab:	{selector: 'submitContainer #subitFormTab'		},
 			btnNext:	'button[action=createNext]',
-			formRef: 	'violationSubmit'
+			formRef: 	'violationSubmit',
+			btnPhoto: 	'#btnPhoto',
+			btnDelete:  '#btnDelete',
+			img:		'#img',
+			imgContainer: '#imgContainer'
 			
 		},
 		
@@ -30,6 +34,12 @@ Ext.define('CleanTucson.controller.Create', {
 			
 			'#btnSubmitNext': {
 				tap: 'onSubmitNext'
+			},
+			'button[action=capture]': {
+				tap: 'capturePhoto'
+			},
+			'button[action=delete]': {
+				tap: 'deletePhoto'
 			}
 		}	
 	},
@@ -202,7 +212,70 @@ Ext.define('CleanTucson.controller.Create', {
 		}
 		
 		
-	}
+	},
+	
+	// function to replace destroyed image
+    createImg   : function () {
+        var me = this,
+            imgContainer = me.getImgContainer(),
+            img;
+
+        img = {
+            xtype  : 'image',
+            itemId : 'img',
+            height : 400
+        };
+
+        imgContainer.add(img);
+    },
+    
+     capturePhoto : function () {
+        var me = this,
+            pictureSource, // picture source
+            destinationType, // sets the format of returned value
+            btnDelete = me.getBtnDelete(),
+            photoComponent = me.getImg();
+
+        // Wait for Cordova to connect with the device
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Take picture using device camera and retrieve image as base64-encoded string
+        navigator.camera.getPicture(
+            onPhotoDataSuccess,
+            onFail, {
+                quality : 50, destinationType : destinationType.DATA_URL
+            });
+
+        /*-------------- Helper Functions -------------- */
+        function onDeviceReady () {
+            pictureSource = navigator.camera.PictureSourceType;
+            destinationType = navigator.camera.DestinationType;
+        }
+
+        function onPhotoDataSuccess (imageData) {
+            var imgSrc = 'data:image/jpeg;base64,'.concat(imageData);
+
+            photoComponent.setSrc(imgSrc);
+
+            //hide delete button
+            btnDelete.setHidden(false);
+        }
+
+        // Called if something bad happens.
+        function onFail (message) {
+            alert('Failed because: ' + message);
+        }
+    },
+    
+    deletePhoto : function () {
+        var me = this,
+            img = me.getImg(),
+            deleteBtn = me.getBtnDelete();
+
+        img.destroy();
+        me.createImg(); //replace destroyed img component
+        deleteBtn.setHidden(true);
+    },
 	
 	
 	
