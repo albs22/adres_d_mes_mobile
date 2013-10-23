@@ -17,7 +17,8 @@ Ext.define('CleanTucson.controller.Home', {
       		addressField:	'#addressFieldMapDetail',
       		descriptionField: '#descriptionFieldMapDetail',
       		selectField:	'#selectFieldMapDetail',
-      		toggleField:	'#toggleFieldMapDetail'
+      		toggleField:	'#toggleFieldMapDetail',
+      		imageBeforePanel: 	'#beforeImgPanelMap',
 		},
 		
 	    control: {
@@ -247,9 +248,9 @@ Ext.define('CleanTucson.controller.Home', {
     	var record = this.currentViolation;
     	console.log(record);
     	
-    	this.getDateEnteredField().setValue(record.get('dateEntered'));
-   		this.getLatField().setValue(record.get('lat'));
-   		this.getLngField().setValue(record.get('lng'));
+    	//this.getDateEnteredField().setValue(record.get('dateEntered'));
+   		//this.getLatField().setValue(record.get('lat'));
+   		//this.getLngField().setValue(record.get('lng'));
    		this.getAddressField().setValue(record.get('violation_address'));
    		this.getDescriptionField().setValue(record.get('description'));
    		this.getSelectField().setValue(record.get('violation_type'));
@@ -258,6 +259,14 @@ Ext.define('CleanTucson.controller.Home', {
    		if (record.get('status') == "closed") {
    			toggle.setValue(1);
    		}
+   		
+   		var imageBeforeUrl = record.get('image_before_url_t');
+   		//var imageAfterUrl = record.get('image_after_url');
+   		
+   		if (imageBeforeUrl != null) {
+   			this.getImageBeforePanel().setHtml("<img style='margin-left: 10px; margin-top: 5px; height: 100px;' src='" + imageBeforeUrl + "' />");
+   		}
+   		
     	
     },
     

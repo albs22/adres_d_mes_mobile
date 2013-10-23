@@ -5,16 +5,20 @@ Ext.define('CleanTucson.view.Detail', {
 	
 	config: {
 		title: 'Details',
-		tpl: [ '{type}'],
+		//tpl: [ '{type}'],
 		
 		
 		
-		items: [{
+		items: [
+		/*
+		{
 			xtype: 'datepickerfield',
 			name: 'submitedDate',
 			label: 'Entered Date',				
 			itemId: 'enteredDateDetail'
 		},
+		*/
+		/*
 		{
 			xtype: 'textfield',
 			name: 'latitude',
@@ -28,6 +32,8 @@ Ext.define('CleanTucson.view.Detail', {
 			label: 'Longitude',
 			itemId: 'lngFieldDetail'
 		},
+		
+		*/
 		{
 			xtype: 'textfield',
 			name: 'address',
@@ -69,6 +75,11 @@ Ext.define('CleanTucson.view.Detail', {
 			id: 'toggleFieldDetail'
 		},
 		{
+			
+		},
+		
+		
+		{
 			xtype:'panel',
 			layout: {
 				type: 'hbox'
@@ -77,8 +88,10 @@ Ext.define('CleanTucson.view.Detail', {
 				xtype: 'panel',
 				id: 'beforeImgPanel'
 			}, {
-				xtype: 'panel',
-				id: 'afterImgPanel'
+				xtype: 'button',
+				action: 'showFullImage',
+				text: 'Full Image',
+				margin: '10 10 20 10'
 			}]
 		}
 		

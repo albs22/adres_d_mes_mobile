@@ -11,7 +11,7 @@ Ext.define('CleanTucson.view.ListContainer', {
         items: [{
         	xtype: 'toolbar',
         	//xtype: 'titlebar',
-  			title: 'Violation List',
+  			title: 'Messes',
     		docked: 'top',
     		layout: {
     			//pack: 'justify'

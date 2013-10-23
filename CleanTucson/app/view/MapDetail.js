@@ -61,6 +61,7 @@ Ext.define('CleanTucson.view.MapDetail', {
 		
 		
 		},
+		/*
 		
 		{
 			xtype: 'datepickerfield',
@@ -81,6 +82,7 @@ Ext.define('CleanTucson.view.MapDetail', {
 			label: 'Longitude',
 			id: 'lngFieldMapDetail'
 		},
+		*/
 		{
 			xtype: 'textfield',
 			name: 'address',
@@ -119,7 +121,12 @@ Ext.define('CleanTucson.view.MapDetail', {
 			label: 'Cleaned Up',
 			value: 0,
 			id: 'toggleFieldMapDetail'
+		},
+		{
+			xtype: 'panel',
+			id: 'beforeImgPanelMap'
 		}
+		
 		
 		
 		

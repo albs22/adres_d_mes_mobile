@@ -20,43 +20,43 @@ Ext.define('CleanTucson.view.Main', {
 					action: 'toolBarHome'
 				}]
 			},
-			//{
+			{
 				
-				/*xtype: 'container',
+				xtype: 'container',
 				docked: 'bottom',
 				
 				layout: {
-					//type: 'hbox',
+					type: 'hbox',
 					//pack: 'justify'
 				},
 				items: [{
-					*/
+					
 		
-					//xtype: 'button',
-				//	html: "<img class='button-image' src='resources/images/mapicon2.png' /> <p>Map</p>",
-	             //   id: 'new',
-	             //   cls: 'main-button',
-	               
-				//},
-				{
-					xtype: 'button',
-					html: "<img class='button-image' src='resources/images/listicon.png' /> <p>List</p>",
-					id: 'btnVioList',
-					cls: 'main-button'
-				},
-				
-				{
-					xtype: 'button',
-					html: "<img class='button-image' src='resources/images/submitmess.png' /> <p>Submit</p>",
-					id: 'btnSubmitVio',
-					cls: 'main-button',
+						xtype: 'button',
+						html: "<img class='button-image' src='resources/images/mapicon2.png' /> <p>Map</p>",
+		               id: 'new',
+		               cls: 'main-button',
+		               
+					},
+					{
 					
-				
+						xtype: 'button',
+						html: "<img class='button-image' src='resources/images/listicon.png' /> <p>List</p>",
+						id: 'btnVioList',
+						cls: 'main-button'
+					},
+					/*
 					
-				}
-				//]
+					{
+						xtype: 'button',
+						html: "<img class='button-image' src='resources/images/submitmess.png' /> <p>Submit</p>",
+						id: 'btnSubmitVio',
+						cls: 'main-button',
+						
+					} */
+				]
 			
-			
+			}
 			]	
 			
 			
