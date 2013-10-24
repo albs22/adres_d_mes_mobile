@@ -1,5 +1,6 @@
 Ext.define('CleanTucson.controller.Home', {
 	extend: 'Ext.app.Controller',
+	requires: ['Ext.util.GeoLocation'],
 
 	config: {
 		refs: {
@@ -63,6 +64,30 @@ Ext.define('CleanTucson.controller.Home', {
         // When our controller is launched, create an instance of our User view and add it to the viewport
         // which has a card layout
         Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
+        
+        /*
+        var geo = Ext.create('Ext.util.Geolocation', {
+    autoUpdate: true,
+    listeners: {
+        locationupdate: function(geo) {
+            alert('New latitude: ' + geo.getLatitude());
+        },
+        locationerror: function(geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {
+            if(bTimeout){
+                alert('Timeout occurred.');
+            } else {
+                alert('Error occurred.');
+            }
+        }
+    }
+});
+*/
+
+//console.log('Location');
+//geo.updateLocation();
+        
+        
+        
     },
 
     onNewTap: function() {
@@ -88,6 +113,42 @@ Ext.define('CleanTucson.controller.Home', {
     	//var p = this.getMapInfoContainer()
     	//console.log(p);
     	//p.setHtml("Why??")
+    	
+    	
+    	Ext.device.Geolocation.watchPosition({
+		    frequency: 3000, // Update every 3 seconds
+		    callback: function(position) {
+		        console.log('Position updated!', position.coords);
+		       // var latLng = new google.maps.LatLng(violation.get('lat'), violation.get('lng'));
+		        googlemap.setCenter(position.coords);
+		    },
+		    failure: function() {
+		        console.log('something went wrong!');
+		    }
+		});
+		
+		/*
+			Ext.device.Geolocation.watchPosition({
+			    frequency: 3000, // Update every 3 seconds
+			    callback: function(position) {
+			        console.log('Position updated!', position.coords);
+			    },
+			    failure: function() {
+			        console.log('something went wrong!');
+			    }
+			});
+			*/
+			
+			
+			
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	
     	this.test1 = 42;
     	var panelRef = this.getMapInfoContainer();

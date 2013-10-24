@@ -10,7 +10,7 @@ Ext.define('CleanTucson.view.MapDetail', {
 		
 				xtype: 'toolbar',
 	        	//xtype: 'titlebar',
-	  			title: 'Violation List',
+	  			title: 'Detail',
 	    		docked: 'top',
 	    		layout: {
 	    			//pack: 'justify'

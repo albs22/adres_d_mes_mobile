@@ -26,7 +26,7 @@ Ext.define('CleanTucson.view.Main', {
 				docked: 'bottom',
 				
 				layout: {
-					type: 'hbox',
+					type: 'vbox',
 					//pack: 'justify'
 				},
 				items: [{
