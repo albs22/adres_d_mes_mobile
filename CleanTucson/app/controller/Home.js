@@ -114,6 +114,44 @@ Ext.define('CleanTucson.controller.Home', {
     	//console.log(p);
     	//p.setHtml("Why??")
     	
+    	var cmarker = new google.maps.Marker({
+    			position: new google.maps.LatLng(32.2500, -111.0071), 
+    			map: googlemap,
+    			icon: 'resources/images/location.png'
+    		});
+    	
+    	
+    	
+    	
+    	 var geo = Ext.create('Ext.util.Geolocation', {
+		    autoUpdate: true,
+		    listeners: {
+		        locationupdate: function(geo) {
+		        	var latLngCenter = new google.maps.LatLng(geo.getLatitude(), geo.getLongitude());
+		        	
+		            console.log('New latitude: ' + geo.getLatitude());
+		            cmarker.setPosition(latLngCenter);
+		            
+		           // googlemap.setCenter(latLngCenter);
+		        },
+		        locationerror: function(geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {
+		            if(bTimeout){
+		                alert('Timeout occurred.');
+		            } else {
+		                alert('Error occurred.');
+		            }
+		        }
+		    }
+		});
+		geo.updateLocation();
+		
+		
+		
+		
+		
+		
+		
+    	/*
     	
     	Ext.device.Geolocation.watchPosition({
 		    frequency: 3000, // Update every 3 seconds
