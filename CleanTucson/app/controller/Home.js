@@ -19,6 +19,7 @@ Ext.define('CleanTucson.controller.Home', {
       		selectField:	'#selectFieldMapDetail',
       		toggleField:	'#toggleFieldMapDetail',
       		imageBeforePanel: 	'#beforeImgPanelMap',
+      		img:				'#fimg'
 		},
 		
 	    control: {
@@ -49,7 +50,11 @@ Ext.define('CleanTucson.controller.Home', {
            '#btnMapDetailBack': {
            		//tap: 'onMapDetailBack'
            }
-           
+           /*
+           'button[action=showFullImage]': {
+           		tap: 'onShowFullImageMap'
+           }
+           */
       }
 	},
 	
@@ -260,8 +265,11 @@ Ext.define('CleanTucson.controller.Home', {
    			toggle.setValue(1);
    		}
    		
+   		this.imgBeforeUrlMap = imageBeforeUrl;
+   		
    		var imageBeforeUrl = record.get('image_before_url_t');
    		//var imageAfterUrl = record.get('image_after_url');
+   		this.imgBeforeUrlMap = record.get('image_before_url_f');
    		
    		if (imageBeforeUrl != null) {
    			this.getImageBeforePanel().setHtml("<img style='margin-left: 10px; margin-top: 5px; height: 100px;' src='" + imageBeforeUrl + "' />");
@@ -271,9 +279,25 @@ Ext.define('CleanTucson.controller.Home', {
     },
     
     onMapDetailBack: function() {
-    	console.log('Map Detail Back');
-    	Ext.Viewport.remove(Ext.Viewport.getActiveItem(), true);  
-    	Ext.Viewport.setActiveItem('mymap');
-    }
+    	
+   	},
+   	
+   	onShowFullImageMap: function() {
+   		console.log('Full Image');
+		
+		var imageView = Ext.create('CleanTucson.view.FullImage');
+		Ext.Viewport.setActiveItem(imageView);
+		
+		
+   		//this.getBtnUpdate().setHidden(true);
+   		//this.getBtnBack().setHidden(false);
+   		
+   		var imageBeforeUrl = this.imgBeforeUrlMap;
+   		
+   		if (imageBeforeUrl != null) {
+   			this.getImg().setHtml("<img style='width: 100%;' src='" + imageBeforeUrl + "' />");
+   		}
+   	}
+   		
 
 });

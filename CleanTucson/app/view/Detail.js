@@ -82,7 +82,8 @@ Ext.define('CleanTucson.view.Detail', {
 		{
 			xtype:'panel',
 			layout: {
-				type: 'hbox'
+				type: 'hbox',
+				pack: 'center'
 			},
 			items: [{
 				xtype: 'panel',

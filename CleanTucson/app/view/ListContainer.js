@@ -37,6 +37,7 @@ Ext.define('CleanTucson.view.ListContainer', {
     			
     		},	
     		
+    		
     		{
     			xtype: 'spacer'
     		},
@@ -50,7 +51,9 @@ Ext.define('CleanTucson.view.ListContainer', {
     			hidden: true,
     			action: 'detailUpdate'
     			
-    		}]
+    		}
+    		
+    		]
   		},
         {
             xtype: 'violationList'

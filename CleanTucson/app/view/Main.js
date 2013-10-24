@@ -10,7 +10,7 @@ Ext.define('CleanTucson.view.Main', {
 			{
 				
 				xtype: 'toolbar',
-				title: 'Address the Mess',
+				title: 'Adres D Mes',
 				id: 'mainBar',
 				dock: 'top',
 				items: [{

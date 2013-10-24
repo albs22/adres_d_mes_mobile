@@ -116,15 +116,33 @@ Ext.define('CleanTucson.view.MapDetail', {
 			]
 			
 		},
+		/*
 		{
 			xtype: 'togglefield',
 			label: 'Cleaned Up',
 			value: 0,
 			id: 'toggleFieldMapDetail'
 		},
+		*/
 		{
-			xtype: 'panel',
-			id: 'beforeImgPanelMap'
+			xtype:'panel',
+			layout: {
+				type: 'hbox',
+				pack: 'center'
+			},
+			items: [{
+				xtype: 'panel',
+				id: 'beforeImgPanelMap'
+			}, 
+			/*
+			{
+				xtype: 'button',
+				action: 'showFullImage',
+				text: 'Full Image',
+				margin: '10 10 20 10'
+			}
+			*/
+			]
 		}
 		
 		
