@@ -111,7 +111,7 @@ Ext.define('CleanTucson.view.MapDetail', {
 				},
 				{
 					text: 'Big Item',
-					value: 'bitItem'
+					value: 'bigitem'
 				}
 			]
 			

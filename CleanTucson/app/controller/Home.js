@@ -115,7 +115,7 @@ Ext.define('CleanTucson.controller.Home', {
     	//p.setHtml("Why??")
     	
     	var cmarker = new google.maps.Marker({
-    			position: new google.maps.LatLng(32.2500, -111.0071), 
+    			position: new google.maps.LatLng(32.264237, -110.960283), 
     			map: googlemap,
     			icon: 'resources/images/location.png'
     		});
@@ -211,11 +211,34 @@ Ext.define('CleanTucson.controller.Home', {
     		console.log('Add Marker');
     		var latLng = new google.maps.LatLng(violation.get('lat'), violation.get('lng'));
     		
+    		var vtype = violation.get('violation_type').toLowerCase();
+   		
+	   		console.log(vtype);
+	   		
+	   		var image = 'resources/images/';
+	   		
+	   		if (vtype.indexOf('mess') != -1) {
+	   			
+	   			image += 'messi.png';
+	   		}
+	   		
+	   		if (vtype.indexOf('bigitem') != -1) {
+	   			image += 'bigi.png';
+	   		}
+	   		
+	   		if(vtype.indexOf('weeds') != -1) {
+	   			image += 'weedsi.png';
+	   		}
+    		
+    		
+    	
+    		
     		//create new marker
     		var marker = new google.maps.Marker({
     			position: latLng,
     			map: googlemap,
-    			title: violation.get('violation_type')
+    			title: violation.get('violation_type'),
+    			icon: image
     		});
     		
     		var popup;
@@ -357,7 +380,25 @@ Ext.define('CleanTucson.controller.Home', {
    		//this.getLngField().setValue(record.get('lng'));
    		this.getAddressField().setValue(record.get('violation_address'));
    		this.getDescriptionField().setValue(record.get('description'));
-   		this.getSelectField().setValue(record.get('violation_type'));
+   	
+   		var vtype = record.get('violation_type').toLowerCase();
+   		
+   		
+   		if (vtype.indexOf('mess') != -1) {
+   			this.getSelectField().setValue('mess');
+   		}
+   		
+   		if (vtype.indexOf('big') != -1) {
+   			this.getSelectField().setValue('bigItem');
+   		}
+   		
+   		if(vtype.indexOf('weeds') != -1) {
+   			this.getSelectField().setValue('weeds');
+   		}
+   		 
+   		
+   	
+   		
    		var toggle = this.getToggleField();
    		
    		if (record.get('status') == "closed") {
@@ -366,12 +407,12 @@ Ext.define('CleanTucson.controller.Home', {
    		
    		this.imgBeforeUrlMap = imageBeforeUrl;
    		
-   		var imageBeforeUrl = record.get('image_before_url_t');
+   		var imageBeforeUrl = record.get('image_before_url_f');
    		//var imageAfterUrl = record.get('image_after_url');
    		this.imgBeforeUrlMap = record.get('image_before_url_f');
    		
    		if (imageBeforeUrl != null) {
-   			this.getImageBeforePanel().setHtml("<img style='margin-left: 10px; margin-top: 5px; height: 100px;' src='" + imageBeforeUrl + "' />");
+   			this.getImageBeforePanel().setHtml("<img style='margin-left: 10px; margin-top: 5px; height: 200px;' src='" + imageBeforeUrl + "' />");
    		}
    		
     	

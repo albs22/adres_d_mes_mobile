@@ -62,7 +62,7 @@ Ext.define('CleanTucson.view.Detail', {
 				},
 				{
 					text: 'Big Item',
-					value: 'bitItem'
+					value: 'bigitem'
 				}
 			]
 			

@@ -76,7 +76,27 @@ Ext.define('CleanTucson.controller.List', {
    		//this.getLngField().setValue(record.get('lng'));
    		this.getAddressField().setValue(record.get('violation_address'));
    		this.getDescriptionField().setValue(record.get('description'));
-   		this.getSelectField().setValue(record.get('type'));
+   		//this.getSelectField().setValue(record.get('type'));
+   		
+   		var vtype = record.get('violation_type').toLowerCase();
+   		
+   		console.log(vtype);
+   		
+   		
+   		if (vtype.indexOf('mess') != -1) {
+   			this.getSelectField().setValue('mess');
+   		}
+   		
+   		if (vtype.indexOf('bigitem') != -1) {
+   			this.getSelectField().setValue('bigitem');
+   		}
+   		
+   		if(vtype.indexOf('weeds') != -1) {
+   			this.getSelectField().setValue('weeds');
+   		}
+   		
+   		
+   		
    		
    		this.imgBeforeUrl = record.get('image_before_url_f');
    		var imageBeforeUrl = record.get('image_before_url_t');
