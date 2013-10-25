@@ -136,9 +136,9 @@ Ext.define('CleanTucson.controller.Home', {
 		        },
 		        locationerror: function(geo, bTimeout, bPermissionDenied, bLocationUnavailable, message) {
 		            if(bTimeout){
-		                alert('Timeout occurred.');
+		                console.log('Timeout occurred.');
 		            } else {
-		                alert('Error occurred.');
+		                console.log('Error occurred.');
 		            }
 		        }
 		    }
@@ -146,10 +146,7 @@ Ext.define('CleanTucson.controller.Home', {
 		geo.updateLocation();
 		
 		
-		
-		
-		
-		
+	
 		
     	/*
     	
@@ -179,13 +176,6 @@ Ext.define('CleanTucson.controller.Home', {
 			
 			
 			
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	
     	
     	this.test1 = 42;
@@ -412,7 +402,7 @@ Ext.define('CleanTucson.controller.Home', {
    		this.imgBeforeUrlMap = record.get('image_before_url_f');
    		
    		if (imageBeforeUrl != null) {
-   			this.getImageBeforePanel().setHtml("<img style='margin-left: 10px; margin-top: 5px; height: 200px;' src='" + imageBeforeUrl + "' />");
+   			this.getImageBeforePanel().setHtml("<img style='margin-left: 10px; margin-top: 5px; height: 160px;' src='" + imageBeforeUrl + "' />");
    		}
    		
     	
