@@ -1,6 +1,6 @@
 Ext.define('CleanTucson.view.Map', {
     extend: 'Ext.Map',
-    alias: 'widget.mymap',
+    alias: 'widget.mainMap',
     xtype: 'mapContainer',
     autoCreate: true,
     requires: [
@@ -10,7 +10,10 @@ Ext.define('CleanTucson.view.Map', {
     
     config: {
      
-    	items: [{
+    	items: [
+    	
+    	/*
+    		{
 			xtype: 'toolbar',
 			docked: 'top',
 			title: 'Map',
@@ -18,16 +21,20 @@ Ext.define('CleanTucson.view.Map', {
 				pack: 'justify'
 			},
 			items: [{
-				iconCls: 'home',
-				iconMask: true,
-				action: 'toolBarHome'
-			}, { xtype: 'spacer' }, 
-			{
-				text: 'Details',
-				id: 'btnMapDetail',
-				disabled: true
-			}]
+					iconCls: 'home',
+					iconMask: true,
+					action: 'toolBarHome'
+				}, { xtype: 'spacer' }, 
+				{
+					text: 'Details',
+					id: 'btnMapDetail',
+					disabled: true
+				}
+			]
     	},
+    	
+    	*/
+    	
     	{
     		xtype: 'panel',
     		docked: 'bottom',

@@ -94,7 +94,11 @@ Ext.define('CleanTucson.controller.Home', {
     	console.log('Test Button');
         
          //The map view is being auto created so it only has to set active here
-         Ext.Viewport.setActiveItem('mymap');
+         //Ext.Viewport.setActiveItem('mymap');
+        Ext.Viewport.setActiveItem('mapNavView');
+        
+        
+        
         
         //Ext.Viewport.setActiveItem(Ext.create('CleanTucson.view.Map'));
         console.log('Map Shown');
@@ -325,7 +329,7 @@ Ext.define('CleanTucson.controller.Home', {
     
     onVioListTap: function() {
     	console.log("Show violation list");
-    	Ext.Viewport.setActiveItem('listPanel');
+    	Ext.Viewport.setActiveItem('listNavView');
     },
     
     onSubmitVioTap: function() {

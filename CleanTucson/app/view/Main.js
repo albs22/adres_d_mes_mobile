@@ -8,7 +8,6 @@ Ext.define('CleanTucson.view.Main', {
 		
 		items: [
 			{
-				
 				xtype: 'toolbar',
 				title: 'Address D Mess',
 				id: 'mainBar',
@@ -34,8 +33,8 @@ Ext.define('CleanTucson.view.Main', {
 		
 						xtype: 'button',
 						html: "<img class='button-image' src='resources/images/mapicon2.png' /> <p>Map</p>",
-		               id: 'new',
-		               cls: 'main-button',
+		                id: 'new',
+		                cls: 'main-button',
 		               
 					},
 					{

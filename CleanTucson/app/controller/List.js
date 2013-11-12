@@ -4,7 +4,7 @@ Ext.define('CleanTucson.controller.List', {
 	config: {
 		refs: {	
       		listView: 			'violist',
-      		listPanel: 			'listPanel',
+      		listNavView: 		'listNavView',
       		btnBack: 			'button[action=listBack]',
       		btnUpdate:     		'button[action=detailUpdate]',
       		dateEnteredField:	'#enteredDateDetail',
@@ -60,8 +60,8 @@ Ext.define('CleanTucson.controller.List', {
 		
 		//lp = this.getListPanel();
 		//lp.getBtn
-		
-    	this.getListPanel().push({
+		console.log('Push List');
+    	this.getListNavView().push({
       		xtype: 'violationDetail',
       		title: 'Vio Detail',
       		data: record.getData()
@@ -126,14 +126,14 @@ Ext.define('CleanTucson.controller.List', {
 	onBtnBackTap: function() {
 		console.log('Back tap');
 		
-		var viewId = this.getListPanel().getActiveItem().getId();
+		var viewId = this.getListNavView().getActiveItem().getId();
 		console.log(viewId);
 		if (viewId.indexOf("violationDetail") != -1) {
 			this.getBtnBack().setHidden(true);
 		}
 
 		this.getBtnUpdate().setHidden(true);
-		this.getListPanel().pop();
+		this.getListNavView().pop();
 	},
 	
 	onBtnDetailUpdateTap: function() {
@@ -188,7 +188,7 @@ Ext.define('CleanTucson.controller.List', {
 	onShowFullImage: function() {
 		console.log('Full Image');
 		
-		this.getListPanel().push({
+		this.getListNavView().push({
       		xtype: 'fullimg',
       		title: 'Image',
    		});

@@ -1,6 +1,6 @@
 Ext.define('CleanTucson.view.ListContainer', {
     extend: 'Ext.navigation.View',
-    xtype: 'listPanel',
+    xtype: 'listNavView',
     requires: [
         'CleanTucson.view.ViolationList',
         'CleanTucson.view.Detail'
