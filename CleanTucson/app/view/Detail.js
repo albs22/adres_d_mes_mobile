@@ -5,7 +5,14 @@ Ext.define('CleanTucson.view.Detail', {
 	
 	config: {
 		title: 'Details',
+		listeners: {
+		 	initialize:function(){
+		 		//Fire event to populate Detail view data
+         	   this.fireEvent('onPopulateDetail', this.getData());
+			}
+		},
 		//tpl: [ '{type}'],
+		
 		
 		
 		

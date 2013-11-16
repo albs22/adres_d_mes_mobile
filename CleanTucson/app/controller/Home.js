@@ -4,12 +4,14 @@ Ext.define('CleanTucson.controller.Home', {
 
 	config: {
 		refs: {
-			homeButton: 'button[action=toolBarHome]',
+			mapNavView: 'mapNavView',
+			btnMapHome: 'button[action=toolBarHome]',
 			storeButton: 'button[action=testStore]',
 			mapInfoContainer: {selector: 'mapContainer #mapDetail'},
 			testPanel:  {selector: 'homePanel2 #testPanel'},
 			homeTitleBar: {selector:'homePanel2 #mainBar' },
 			btnShowDetail: '#btnMapDetail',
+			btnMapBack: 'button[action=mapBack]',
 			submitContain: 'submitContainer',
 			mapDetail: 'violationMapDetail',
 			dateEnteredField:		'#enteredDateMapDetail',
@@ -35,7 +37,7 @@ Ext.define('CleanTucson.controller.Home', {
            '#btnSubmitVio': {
            		tap: 'onSubmitVioTap'
            },
-           homeButton: {
+           btnMapHome: {
            		tap: 'goHome'
            },
            
@@ -338,13 +340,29 @@ Ext.define('CleanTucson.controller.Home', {
     },
     
     onBtnShowDetailTap: function() {
-    	console.log('Tap Detail');
+    	console.log('Push Map Detail');
     	console.log(this.currentViolation);
     	
+    	//Push shared Detail view to the mapNavView
+    	this.getMapNavView().push({
+    		xtype: 'violationDetail',
+    		title: 'Details',
+    		data: this.currentViolation.getData()
+    	});
     	
-    	var detailView = Ext.create('CleanTucson.view.MapDetail');
-    	detailView.setRecord(this.currentViolation);
-    	Ext.Viewport.setActiveItem(detailView);
+    	//Hide detail button when in Detail view
+    	this.getBtnShowDetail().setHidden(true);
+    	
+    	//Hide home button when in Detail view
+    	this.getBtnMapHome().setHidden(true);
+   
+    	//Show back button when in Detail view
+    	this.getBtnMapBack().setHidden(false);
+    	
+    	
+    	//var detailView = Ext.create('CleanTucson.view.MapDetail');
+    	//detailView.setRecord(this.currentViolation);
+    	//Ext.Viewport.setActiveItem(detailView);
     	
     	
     	//console.log(this.getController('Home').currentViolation);

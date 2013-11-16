@@ -63,7 +63,7 @@ Ext.define('CleanTucson.controller.List', {
 		console.log('Push List');
     	this.getListNavView().push({
       		xtype: 'violationDetail',
-      		title: 'Vio Detail',
+      		title: 'Details',
       		data: record.getData()
    		});
    		
