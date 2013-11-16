@@ -23,7 +23,8 @@ Ext.define('CleanTucson.view.ListContainer', {
     			align: 'left',
     			iconCls: 'home',
     			iconMask: true,
-    			action: 'toolBarHome',
+    			id: 'toolBarListHome',
+    			action: 'toolBarListHome',
     			
     		}, 
     		

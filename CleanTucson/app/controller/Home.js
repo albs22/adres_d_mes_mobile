@@ -5,7 +5,7 @@ Ext.define('CleanTucson.controller.Home', {
 	config: {
 		refs: {
 			mapNavView: 'mapNavView',
-			btnMapHome: 'button[action=toolBarHome]',
+			btnMapHome: 'button[action=toolBarMapHome]',
 			storeButton: 'button[action=testStore]',
 			mapInfoContainer: {selector: 'mapContainer #mapDetail'},
 			testPanel:  {selector: 'homePanel2 #testPanel'},
@@ -21,8 +21,6 @@ Ext.define('CleanTucson.controller.Home', {
       		descriptionField: '#descriptionFieldMapDetail',
       		selectField:	'#selectFieldMapDetail',
       		toggleField:	'#toggleFieldMapDetail',
-      		imageBeforePanel: 	'#beforeImgPanelMap',
-      		img:				'#fimg'
 		},
 		
 	    control: {
@@ -50,8 +48,8 @@ Ext.define('CleanTucson.controller.Home', {
            mapDetail: {
            		show: 'onMapDetailShow'
            },
-           '#btnMapDetailBack': {
-           		//tap: 'onMapDetailBack'
+           'button[action=mapBack]': {
+           		tap: 'onMapDetailBack'
            }
            /*
            'button[action=showFullImage]': {
@@ -358,98 +356,20 @@ Ext.define('CleanTucson.controller.Home', {
    
     	//Show back button when in Detail view
     	this.getBtnMapBack().setHidden(false);
-    	
-    	
-    	//var detailView = Ext.create('CleanTucson.view.MapDetail');
-    	//detailView.setRecord(this.currentViolation);
-    	//Ext.Viewport.setActiveItem(detailView);
-    	
-    	
-    	//console.log(this.getController('Home').currentViolation);
-    	
-    	/*
-    	console.log(this.test1);
-    	console.log(this.getController('Home').test1);
-    	console.log(this.getController('Home').getTest1());
-    	//var detailView = Ext.create('CleanTucson.view.Detail');
-    	//detailView.setRecord()
-    	*/
-    	
-    	
-    	
-    	
-    	
-    },
-    
-    onMapDetailShow: function()
-    {
-    	console.log("Show Detail");
-    	var record = this.currentViolation;
-    	console.log(record);
-    	
-    	//this.getDateEnteredField().setValue(record.get('dateEntered'));
-   		//this.getLatField().setValue(record.get('lat'));
-   		//this.getLngField().setValue(record.get('lng'));
-   		this.getAddressField().setValue(record.get('violation_address'));
-   		this.getDescriptionField().setValue(record.get('description'));
-   	
-   		var vtype = record.get('violation_type').toLowerCase();
-   		
-   		
-   		if (vtype.indexOf('mess') != -1) {
-   			this.getSelectField().setValue('mess');
-   		}
-   		
-   		if (vtype.indexOf('big') != -1) {
-   			this.getSelectField().setValue('bigItem');
-   		}
-   		
-   		if(vtype.indexOf('weeds') != -1) {
-   			this.getSelectField().setValue('weeds');
-   		}
-   		 
-   		
-   	
-   		
-   		var toggle = this.getToggleField();
-   		
-   		if (record.get('status') == "closed") {
-   			toggle.setValue(1);
-   		}
-   		
-   		this.imgBeforeUrlMap = imageBeforeUrl;
-   		
-   		var imageBeforeUrl = record.get('image_before_url_f');
-   		//var imageAfterUrl = record.get('image_after_url');
-   		this.imgBeforeUrlMap = record.get('image_before_url_f');
-   		
-   		if (imageBeforeUrl != null) {
-   			this.getImageBeforePanel().setHtml("<img style='margin-left: 10px; margin-top: 5px; height: 160px;' src='" + imageBeforeUrl + "' />");
-   		}
-   		
-    	
     },
     
     onMapDetailBack: function() {
+		var viewId = this.getMapNavView().getActiveItem().getId();
+		console.log(viewId);
+		if (viewId.indexOf("violationDetail") != -1) {
+			this.getBtnMapBack().setHidden(true);
+			this.getBtnMapHome().setHidden(false);
+			this.getBtnShowDetail().setHidden(false);
+		}
+
+		//this.getBtnUpdate().setHidden(true);
+		this.getMapNavView().pop();
     	
    	},
    	
-   	onShowFullImageMap: function() {
-   		console.log('Full Image');
-		
-		var imageView = Ext.create('CleanTucson.view.FullImage');
-		Ext.Viewport.setActiveItem(imageView);
-		
-		
-   		//this.getBtnUpdate().setHidden(true);
-   		//this.getBtnBack().setHidden(false);
-   		
-   		var imageBeforeUrl = this.imgBeforeUrlMap;
-   		
-   		if (imageBeforeUrl != null) {
-   			this.getImg().setHtml("<img style='width: 100%;' src='" + imageBeforeUrl + "' />");
-   		}
-   	}
-   		
-
 });

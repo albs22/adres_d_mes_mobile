@@ -35,7 +35,7 @@ Ext.application({
     views: [
         'Main', 'Test', 'Map', 'MainTitleBar', 'ViolationList', 
         'ListContainer', 'Detail', 'SubmitContainer', 'SubmitForm', 
-        'SelectLocation', 'MapDetail', 'CameraContainer', 'FullImage',
+        'SelectLocation', 'CameraContainer', 'FullImage',
         'MapContainer'
     ],
     

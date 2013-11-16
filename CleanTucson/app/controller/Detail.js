@@ -7,12 +7,19 @@ Ext.define('CleanTucson.controller.Detail', {
 			addressField:		'#addressFieldDetail',
       		descriptionField: 	'#descriptionFieldDetail',
       		selectField:		'#selectFieldDetail',
-      		toggleField:		'#toggleFieldDetail'	
+      		toggleField:		'#toggleFieldDetail',
+      		imageBeforePanel: 	'#beforeImgPanel',
+      		imageAfterPanel: 	'#afterImgPanel',
+      		img:				'#fimg'
 		},
 		
 		control: {
 			detailView: {
 				onPopulateDetail :  'populateDetailData'
+			},
+			
+			'button[actio=showFullImage]': {
+				tap: 'onShowFullImage'
 			}
 		}
 	},
@@ -45,7 +52,45 @@ Ext.define('CleanTucson.controller.Detail', {
 	   			this.getSelectField().setValue('weeds');
 	   		}
    		}
-	 }
+   		
+   		if(record.status == 'closed') {
+   			this.getToggleField().setValue(1);
+   		}
+   		
+   		
+   	
+   		
+   		//Display thumbnail image
+   		if (record.image_before_url_t) {
+   			this.getImageBeforePanel().setHtml("<img style='height: 100px;' src='" + record.image_before_url_t + "' />");
+   		}
+   		
+   		/*
+   		if (record.image_after_url_t) {
+   			this.getImageAfterPanel().setHtml("<img style='height: 100px;' src='" + record.image_after_url_t + "' />");
+   		}
+   		*/
+   	
+	 },
+	 
+	 onShowFullImage: function() {
+		console.log('Full Image');
+		
+		this.getListNavView().push({
+      		xtype: 'fullimg',
+      		title: 'Image',
+   		});
+   		
+   		this.getBtnUpdate().setHidden(true);
+   		this.getBtnBack().setHidden(false);
+   		
+   		var imageBeforeUrl = this.imgBeforeUrl;
+   		
+   		if (imageBeforeUrl != null) {
+   			this.getImg().setHtml("<img style='width: 100%;' src='" + imageBeforeUrl + "' />");
+   		}
+   		
+	}
 	
 	
 	

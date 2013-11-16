@@ -18,7 +18,8 @@ Ext.define('CleanTucson.view.MapContainer', {
 						align: 'left',
     					iconCls: 'home',
     					iconMask: true,
-    					action: 'toolBarHome',
+    					id: 'btnMapHome',
+    					action: 'toolBarMapHome',
 					}, {
 						align: 'left',
 		    			iconCls: 'arrow_left',
