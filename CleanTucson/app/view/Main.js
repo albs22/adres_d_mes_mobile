@@ -20,7 +20,6 @@ Ext.define('CleanTucson.view.Main', {
 				}]
 			},
 			{
-				
 				xtype: 'container',
 				docked: 'bottom',
 				
@@ -28,37 +27,27 @@ Ext.define('CleanTucson.view.Main', {
 					type: 'vbox',
 					//pack: 'justify'
 				},
-				items: [{
-					
-		
+				items: [
+					{
 						xtype: 'button',
 						html: "<img class='button-image' src='resources/images/mapicon2.png' /> <p>Map</p>",
 		                id: 'new',
-		                cls: 'main-button',
-		               
+		                cls: 'main-button',      
 					},
 					{
-					
 						xtype: 'button',
 						html: "<img class='button-image' src='resources/images/listicon.png' /> <p>List</p>",
 						id: 'btnVioList',
 						cls: 'main-button'
 					},
-					/*
-					
 					{
 						xtype: 'button',
 						html: "<img class='button-image' src='resources/images/submitmess.png' /> <p>Submit</p>",
 						id: 'btnSubmitVio',
 						cls: 'main-button',
-						
-					} */
+					} 
 				]
-			
-			}
-			]	
-			
-			
+			}]	
 	}	
 	
 });

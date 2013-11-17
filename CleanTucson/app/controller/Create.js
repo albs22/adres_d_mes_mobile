@@ -13,12 +13,13 @@ Ext.define('CleanTucson.controller.Create', {
             'Violations'
         ],
 		refs: {
-			latField:   {selector: 'violationSubmit #latField' 			},
-			lngField:   {selector: 'violationSubmit #lngField' 			},
-			tabPanel:   {selector: 'submitContainer #submitTabPanel' 	},
-			pictureTab: {selector: 'submitContainer #submitPictureTab'	},
-			formTab:	{selector: 'submitContainer #subitFormTab'		},
-			btnNext:	'button[action=createNext]',
+			latField:   	{selector: 'violationSubmit #latField' 			},
+			lngField:   	{selector: 'violationSubmit #lngField' 			},
+			tabPanel:   	{selector: 'submitContainer #submitTabPanel' 	},
+			pictureTab: 	{selector: 'submitContainer #submitPictureTab'	},
+			formTab:		{selector: 'submitContainer #subitFormTab'		},
+			btnNext:		'button[action=createNext]',
+			btnCreateHome:  'button[action=toolBarCreateHome]',
 			formRef: 	'violationSubmit',
 			btnPhoto: 	'#btnPhoto',
 			btnDelete:  '#btnDelete',
@@ -40,11 +41,18 @@ Ext.define('CleanTucson.controller.Create', {
 			},
 			'button[action=delete]': {
 				tap: 'deletePhoto'
+			},
+			btnCreateHome: {
+				tap: 'goHome'
 			}
 		}	
 	},
 	
 	//Button Handlers
+	goHome: function() {
+		 Ext.Viewport.setActiveItem('home');
+	},
+	
 	
 	onSelectLocation: function() {
 		console.log("Tap select location");

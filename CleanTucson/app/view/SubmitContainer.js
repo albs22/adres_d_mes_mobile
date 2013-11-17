@@ -33,7 +33,8 @@ Ext.define('CleanTucson.view.SubmitContainer', {
 	    		items: [{
     				iconCls: 'home',
     				iconMask: true,
-    				action: 'toolBarHome'
+    				itemId: 'btnCreateHome',
+    				action: 'toolBarCreateHome'
 	    		}, {
 	    			xtype: 'spacer'
 	    		}, {
