@@ -40,6 +40,9 @@
      */
     "js": [
         {
+          "path": "cordova.js"
+        },
+        {
             "path": "touch/sencha-touch.js",
             "x-bootstrap": true
         },
@@ -48,6 +51,7 @@
             "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
             "update": "delta"
         }
+       
     ],
 
     /**
