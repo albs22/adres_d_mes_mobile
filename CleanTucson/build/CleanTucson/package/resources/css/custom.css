@@ -1,0 +1,161 @@
+.main-button
+{
+	width: 80px;
+	height: 80px;
+	margin: auto;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.button-image
+{
+	width: 50px;
+	height: 50px;
+	margin-bottom: -5px;
+}
+
+.main-panel
+{
+
+	background: url('../images/bg.jpg') no-repeat center;
+	background-color: #CACACA;
+
+}
+
+.infowindow-content
+{
+	width: 200px;
+	height: 100px;	
+}
+
+.infowindow-content ul 
+{
+	list-style: none;
+}
+
+#map-detail-picture
+{
+	/*width: 75px:
+	height: 50px;
+	*/
+	border: black solid 1px;
+	color: green;
+	float: left;
+	
+}
+
+.map-detail-content
+{
+	float: left;	
+	margin-left: 10px;
+	margin-right: 10px;
+	
+}
+
+#map-detail-image
+{
+	width: 30px;
+	height: 30px;	
+}
+
+ #map-vio-detail-container
+ {
+      border: 1px black solid;
+      width: 100%;
+      height: 100px;
+ }
+ 
+  .vio-table
+    {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      color: #333333;
+    }
+    
+    .vio-type
+    {
+      width: 14%;
+      background: #CCCBC8;
+      padding-left: 5px;
+      padding-right: 5px;
+     
+    }
+    
+    .vio-data-left
+    {
+      width: 45%;
+      padding-left: 10px;
+      font-size: 90%;
+      
+    }
+    
+    .vio-data-right
+    {
+    	width: 25%;
+      	padding-left: 10px;	
+      	font-size: 90%;
+    }
+ 
+ 
+ 
+ /*
+ 
+ #map-vio-detail-container li
+ {
+ 	border: 1px black solid;
+ 	background: #F7F7F7;
+ 	color: #333333;
+ 	width: 100%;
+ 	margin-top: 5px;
+ 	margin-left: 5px;
+ 	margin-bottom: 5px;
+ }
+ 
+ 
+ .vio-map-detail-type
+ {
+ 	
+ 	background: #CCCBC8;
+ 	color: #333333;
+ 	margin-top: 5px;
+ 	margin-left: 5px;
+ 	margin-bottom: 5px;
+ 	width: 200px;
+ }
+ 
+ .vio-map-detail-data
+ {
+ 	width: 200px;
+ 	background: green;
+ }
+ 
+/*
+ #map-vio-detail-container li span
+ {
+ 	border: 1px green solid;
+ 	background: #FFFFFFf;
+ 	width: 275px;
+ }
+ 
+  #map-vio-detail-container li span span
+ {
+ 	border: 1px green solid;
+ 	background: green;
+ 	color: green;
+ 	margin-left: 15px;
+ }
+ */
+ 
+ /*
+#right-vio-map-detail 
+{
+    float: left;
+}
+    
+#left-vio-map-detail
+{
+     float: left;
+}
+*/

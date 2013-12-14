@@ -5,18 +5,33 @@
     a great idea to read that file to understand how the process works, but it is best to
     limit your changes to this file.
     -->
-    
+
     <import file="${basedir}/.sencha/app/cordova-impl.xml"/>
 	<import file="${basedir}/.sencha/app/build-impl.xml"/>
     
     <!--
+=======
+    <import file="${basedir}/.sencha/app/build-impl.xml"/>
+    
+    
+>>>>>>> 05e1b8f4569e208bdd6dd7040c8bb5a324f48989
     <target name="-after-build">
         <delete dir="${build.dir}/android/assets/www" />
 
         <copy todir="${build.dir}/android/assets/www">
+<<<<<<< HEAD
             <fileset dir="${build.dir}/android/assets/www" />
         </copy>
-    </target> -->
+    </target> 
+    
+       <fileset dir="${build.dir}/package"/>
+        </copy>
+    -->
+
+         
+    </target>
+   
+
 
  
     <!--
