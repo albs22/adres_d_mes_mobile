@@ -18,6 +18,7 @@ Ext.define('CleanTucson.view.CameraContainer', {
 			{
 				xtype    : 'button',
                 itemId   : 'btnDelete',
+                text: 'Clear Photo',
                 iconCls  : 'delete',
                 docked    : 'bottom',
                 conMask : true,

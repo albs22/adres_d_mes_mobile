@@ -87,9 +87,14 @@ Ext.define('CleanTucson.controller.Create', {
 			//ft.show();
 		}
 		else if (tabIndex ==2) {
+			//Submit Mess
 			console.log('Submit');
 			var formValues = this.getFormRef().getValues();
 			console.log(formValues);
+			
+			var photoComponent = this.getImg();
+			var imgSrc = photoComponent.getSrc();
+			console.log(imgSrc);
 			
 			var newVio = Ext.create('CleanTucson.model.Violation', {
 				lat: formValues.latitude,
@@ -97,6 +102,7 @@ Ext.define('CleanTucson.controller.Create', {
 				violation_type: formValues.type,
 				description: formValues.description,
 				violation_address: formValues.address,
+				image_data: imgSrc,
 				status: 'open'
 			});
 			
@@ -238,6 +244,33 @@ Ext.define('CleanTucson.controller.Create', {
     },
     
      capturePhoto : function () {
+     	
+     	/*
+     	document.addEventListener("deviceready", onDeviceReady, false);
+
+		function onDeviceReady() {
+				console.log('On Device Ready');
+				  var networkState = navigator.connection.type;
+				  console.log('Net state');
+				  console.log(networkState);
+		    	navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
+		}
+     	
+     	
+     
+		
+		function onSuccess(imageData) {
+		    var image = document.getElementById('myImage');
+		    image.src = "data:image/jpeg;base64," + imageData;
+		    console.log(image.src);
+		}
+		
+		function onFail(message) {
+		    alert('Failed because: ' + message);
+		}
+		*/
+     	
+     
         var me = this,
             pictureSource, // picture source
             destinationType, // sets the format of returned value
@@ -253,10 +286,15 @@ Ext.define('CleanTucson.controller.Create', {
             onFail, {
                 quality : 50, destinationType : destinationType.DATA_URL
             });
+            
 
         /*-------------- Helper Functions -------------- */
+       
         function onDeviceReady () {
-            pictureSource = navigator.camera.PictureSourceType;
+        	
+        	
+        	console.log('On Device Ready');
+            pictureSource =  navigator.camera.PictureSourceType;
             destinationType = navigator.camera.DestinationType;
         }
 
@@ -273,6 +311,7 @@ Ext.define('CleanTucson.controller.Create', {
         function onFail (message) {
             alert('Failed because: ' + message);
         }
+        
     },
     
     deletePhoto : function () {
@@ -284,6 +323,7 @@ Ext.define('CleanTucson.controller.Create', {
         me.createImg(); //replace destroyed img component
         deleteBtn.setHidden(true);
     },
+    
 	
 	
 	

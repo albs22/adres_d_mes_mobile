@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="foo.bar.CleanTucson" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CleanTucson</name>
+    <description>
+        Help keep Tucson Clean by submiting messes around town.
+    </description>
+    <author email="alex@addressdmess.org" href="http://cordova.io">
+        Alex Behlen
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <access origin="'http://shielded-stream-2147.herokuapp.com" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+</widget>

@@ -59,11 +59,11 @@ Ext.define('CleanTucson.controller.Home', {
       }
 	},
 	
-	 launch: function() {
-    	console.log('Launch');
+	 //launch: function() {
+    	//console.log('Launch');
         // When our controller is launched, create an instance of our User view and add it to the viewport
         // which has a card layout
-        Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
+       // Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
         
         /*
         var geo = Ext.create('Ext.util.Geolocation', {
@@ -88,7 +88,7 @@ Ext.define('CleanTucson.controller.Home', {
         
         
         
-    },
+    //},
 
     onNewTap: function() {
     	console.log('Test Button');
@@ -107,7 +107,9 @@ Ext.define('CleanTucson.controller.Home', {
     
     mapController: function(googlemap) {
     	
-    	//console.log(mapInfoContainer);
+    	
+    	
+    	console.log("Load Map");
     	//Ext.ComponentQuery.query('#mapDetail').setHtml("Detail Says Hello");
     	//Ext.getCmp("#mapDetail").setHtml("Shit");
     	//var mi = CleanTucson.view.Map.items.get(1);
@@ -125,7 +127,7 @@ Ext.define('CleanTucson.controller.Home', {
     		});
     	
     	
-    	
+    	/*
     	
     	 var geo = Ext.create('Ext.util.Geolocation', {
 		    autoUpdate: true,
@@ -147,7 +149,8 @@ Ext.define('CleanTucson.controller.Home', {
 		        }
 		    }
 		});
-		geo.updateLocation();
+		//geo.updateLocation();
+		*/
 		
 		
 	

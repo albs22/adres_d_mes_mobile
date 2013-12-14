@@ -10,15 +10,6 @@
     will need to resolve manually.
 */
 
-// DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
-//@require @packageOverrides
-
-//<debug>
-Ext.Loader.setPath({
-    'Ext': 'touch/src'
-});
-//</debug>
-
 Ext.application({
     name: 'CleanTucson',
     
@@ -57,7 +48,7 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
     
-    
+    /*
     viewport: {
         layout: {
             type: 'card',
@@ -69,7 +60,7 @@ Ext.application({
         }
     },
 
-/*
+*/
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
@@ -78,7 +69,8 @@ Ext.application({
         //Ext.create('CleanTucson.view.MainView');
         //Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
         //this.viewport = new CleanTucson.views.ViewPort();
-        Ext.create('CleanTucson.view.Viewport');
+       // Ext.create('CleanTucson.view.Viewport');
+        Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
         
         /*
         Ext.Dispatch({
@@ -87,7 +79,7 @@ Ext.application({
         });
         */
         
-    //},
+    },
     
 
     onUpdated: function() {
