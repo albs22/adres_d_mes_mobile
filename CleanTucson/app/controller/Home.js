@@ -3,6 +3,17 @@ Ext.define('CleanTucson.controller.Home', {
 	requires: ['Ext.util.GeoLocation'],
 
 	config: {
+		routes: {
+			
+			
+		'': 'goHome',
+		'mess/:id': 'onMapDetailBack',
+		'map': 'onMapDetailBack'
+		
+		//'submit': 'onSubmitVioTap'
+		
+		},
+		
 		refs: {
 			mapNavView: 'mapNavView',
 			btnMapHome: 'button[action=toolBarMapHome]',
@@ -93,21 +104,19 @@ Ext.define('CleanTucson.controller.Home', {
     onNewTap: function() {
     	console.log('Test Button');
         
+        //Add page to history for browser and android back button functionality
+        var history = this.getApplication().getHistory();
+    	history.add(new Ext.app.Action({
+    		url: 'map'
+    	}), true);
+        
          //The map view is being auto created so it only has to set active here
-         //Ext.Viewport.setActiveItem('mymap');
         Ext.Viewport.setActiveItem('mapNavView');
         
-        
-        
-        
-        //Ext.Viewport.setActiveItem(Ext.create('CleanTucson.view.Map'));
         console.log('Map Shown');
-       // this.addMarker();
     },
     
-    mapController: function(googlemap) {
-    	
-    	
+    mapController: function(googlemap) {    	
     	
     	console.log("Load Map");
     	//Ext.ComponentQuery.query('#mapDetail').setHtml("Detail Says Hello");
@@ -332,17 +341,37 @@ Ext.define('CleanTucson.controller.Home', {
     
     onVioListTap: function() {
     	console.log("Show violation list");
+ 
+    	var history = this.getApplication().getHistory();
+    	history.add(new Ext.app.Action({
+    		url: 'list'
+    	}), true);
+    	
     	Ext.Viewport.setActiveItem('listNavView');
     },
     
     onSubmitVioTap: function() {
     	console.log('Show violation submit');
+    	//Add page to history for browser and android back functionality
+    	var history = this.getApplication().getHistory();
+    	history.add(new Ext.app.Action({
+    		url: 'submit'
+    	}), true);
+    	
     	Ext.Viewport.setActiveItem('submitContainer');
     },
     
     onBtnShowDetailTap: function() {
     	console.log('Push Map Detail');
     	console.log(this.currentViolation);
+    	
+    	
+    	var history = this.getApplication().getHistory();
+    	history.add(new Ext.app.Action({
+    		url: 'mess/' + this.currentViolation.get('id')
+    	}), true);
+    	
+	
     	
     	//Push shared Detail view to the mapNavView
     	this.getMapNavView().push({
@@ -372,7 +401,6 @@ Ext.define('CleanTucson.controller.Home', {
 
 		//this.getBtnUpdate().setHidden(true);
 		this.getMapNavView().pop();
-    	
-   	},
+   	}
    	
 });

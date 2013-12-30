@@ -70,6 +70,14 @@ Ext.application({
         //Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
         //this.viewport = new CleanTucson.views.ViewPort();
        // Ext.create('CleanTucson.view.Viewport');
+       
+       /*
+       var history = this.getApplication().getHistory();
+       history.add(new Ext.app.Action({
+    		url: 'Home'
+    	}), true);
+    	*/
+       
         Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
         
         /*

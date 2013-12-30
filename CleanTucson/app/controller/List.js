@@ -1,6 +1,11 @@
 Ext.define('CleanTucson.controller.List', {
 	extend: 'Ext.app.Controller',
 	
+	routes: {
+		'mess/:id': 'onBtnBackTap',
+		'list': 'onBtnBackTap'
+	},
+	
 	config: {
 		refs: {	
       		listView: 			'violist',
@@ -55,6 +60,15 @@ Ext.define('CleanTucson.controller.List', {
 		this.getBtnBack().setHidden(false);
 		this.getBtnUpdate().setHidden(false);
 		this.getBtnListHome().setHidden(true);
+	
+		console.log("Record urlId: " + record.get('id'));
+		
+	
+		var history = this.getApplication().getHistory();
+    	history.add(new Ext.app.Action({
+    		url: "mess/" + record.get('id')
+    	}), true);
+	
 	
     	this.getListNavView().push({
       		xtype: 'violationDetail',
