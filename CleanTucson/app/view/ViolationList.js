@@ -15,7 +15,6 @@ Ext.define('CleanTucson.view.ViolationList', {
     			"</tr>" +
     		"</table>",
     
-
     store: 'Violations',
     onItemDisclosure: true
   }
