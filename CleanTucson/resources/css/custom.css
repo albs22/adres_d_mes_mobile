@@ -2,9 +2,13 @@
 {
 	width: 80px;
 	height: 80px;
-	margin: auto;
+	margin-right: 25px;
 	margin-bottom: 15px;
 	margin-top: 15px;
+}
+
+.main-button{
+	font-size: .9em;
 }
 
 .button-image
@@ -16,8 +20,7 @@
 
 .main-panel
 {
-
-	background: url('../images/bg.jpg') no-repeat center;
+	background: url('../images/admicon.png') no-repeat center;
 	background-color: #CACACA;
 
 }
@@ -41,7 +44,6 @@
 	border: black solid 1px;
 	color: green;
 	float: left;
-	
 }
 
 .map-detail-content
@@ -49,7 +51,6 @@
 	float: left;	
 	margin-left: 10px;
 	margin-right: 10px;
-	
 }
 
 #map-detail-image
@@ -98,6 +99,10 @@
       	font-size: 90%;
     }
  
+ 
+ 	.list-text {
+ 		padding-left: 10px;
+ 	}
  
  
  /*

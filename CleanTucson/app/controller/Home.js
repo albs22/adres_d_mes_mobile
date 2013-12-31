@@ -36,7 +36,7 @@ Ext.define('CleanTucson.controller.Home', {
 		
 	    control: {
 	    	
-	    	'#new': {
+	    	'#btnMap': {
                 // On the tap event, call onNewTap
                 tap: 'onNewTap'
            },

@@ -20,18 +20,17 @@ Ext.define('CleanTucson.view.Main', {
 				}]
 			},
 			{
-				xtype: 'container',
+				xtype: 'panel',
 				docked: 'bottom',
-				
 				layout: {
-					type: 'vbox',
-					//pack: 'justify'
+					type: 'hbox',
+					pack: 'center'
 				},
 				items: [
 					{
 						xtype: 'button',
 						html: "<img class='button-image' src='resources/images/mapicon2.png' /> <p>Map</p>",
-		                id: 'new',
+		                id: 'btnMap',
 		                cls: 'main-button',      
 					},
 					{
