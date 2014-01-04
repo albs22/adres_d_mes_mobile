@@ -94,6 +94,12 @@ Ext.define('CleanTucson.controller.Create', {
 			
 			var photoComponent = this.getImg();
 			var imgSrc = photoComponent.getSrc();
+			
+			//var imgSrc = 'iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAABEJAAARCQBQGfEVAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAASESURBVHic7d0xaFx1AMfx73tPklYQqdDJIrTg5JTkn4iLTg4WXOpW0xLXTtIh4tZNzeTkHKpmEbsIdXBRl2L6v8sgQrFgQerUIYpQm8K955CrSO+u78/l3XtJf7/PEsj97//+5P/lXu6Fy8uqqiJFCGEOOAecBZaB08B80pNt1vaAO8BN4DpwLcb4MOWJWUoAIYQ1YAM4Of0arUX3gPUY42bdwCcGEEIogKvA+caWZm3aAi7GGAeTBjxTM8Em3vyj7DxQAhcmDcgnPTB82V9tfk3WstXhXo419hQQQngWuAucmN26rEW7wKkY4/3HH5j0CvAu3vynyQn293TEpADent1arCNj93RSAIszXIh1Y+yejvwOEEKYBx4kTDgAfht+te4UwJnh1zrHYox7///GuLeBxxMP3Isxvpo41mYohPATsJIw9Dj7Vw3/M/FtYIK0a8jWhqn34iAB2FPAAYhzAOIcgDgHIM4BiHMA4hyAOAcgzgGIcwDiHIA4ByDOAYhzAOIcgDgHIM4BiHMA4hyAOAcgzgGIq/t4+EysrKy8UZblW3Xjqqr6qtfr9erGhRAuAS81sriO5Hn+7fb29g9tH7eTAMqyfA34IGHoLaA2AOAicKQ/pFKW5Z9A6wH4FCDOAYhzAOIcgDgHIM4BiHMA4hyAuE4uBA0Gg6+LorhVNy7Lsn7KfGVZrud5/sLBV9adwWDwSxfH7SSAnZ2d28Dtpubr9/s/NjWXGp8CxDkAcQ5AnAMQ5wDEOQBxDkCcAxDnAMQ5AHEOQJwDEOcAxHXy18ClpaX3syy7kjD0UoxxK2G+77IsWz74yrpTVdWVXq/3advH7SSALMuOAc/Xjauqai5xvudS5jvMhj+T1vkUIM4BiHMA4hyAOAcgzgGIcwDiOrkOUFXVgyzL/qobl2XZw8T5/k6Z7zCrqirldr2N6ySA4RWvxq569Xq9N5uaS41PAeIcgDgHIM4BiHMA4hyAOAcgzgGIcwDiHIA4ByDOAYhzAOI6+WvgwsLCy0VRvJIwtB9j/L1u0OLi4utPw7+JG/73tFZ1EkBRFO8AH9WNq6rqPWCzblye5xsc8RtGFEXxIfBx28f1KUCcAxDnAMQ5AHEOQJwDEOcAxDkAcZ1cCMrz/EZZlp8kDP05ccqrwPfTr6h7eZ7f6OK4nQQwvEduY7dJjTF+1tRcanwKEOcAxDkAcQ5AnAMQ5wDEOQBxDkCcAxDnAMQ5AHEOQJwDEOcAxDkAcQ5AnAMQ5wDEOQBxDkCcAxDnAMQdJICssVXYQU29F+M+F/BP4nOXQgi/AoNpD26NKIAziWNH9jarqmpkVAjhLvDiwdZlh8wfMcZTj39z0imgP+PFWPvG7umkAL6Z4UKsG2P3dFIAXwK7s1uLtWyX/T0dMTaAGON94PIsV2Stujzc0xFjfwl8JITwObA6q1VZK76IMV6Y9GDddYA1YKvR5Vibttjfw4me+ArwSAhhDdgATjaxKpu5e8B6jHGzbmBSAAAhhDngHHAWWAZOA/PTr9EatAfcAW4C14FrMcak2+7+C7M98WRTzhp3AAAAAElFTkSuQmCC';
+			
+			
+			
+			
 			console.log(imgSrc);
 			
 			var newVio = Ext.create('CleanTucson.model.Violation', {
@@ -102,7 +108,7 @@ Ext.define('CleanTucson.controller.Create', {
 				violation_type: formValues.type,
 				description: formValues.description,
 				violation_address: formValues.address,
-				image_data: imgSrc,
+				image_before: imgSrc,
 				status: 'open'
 			});
 			
