@@ -19,41 +19,44 @@ Ext.define('CleanTucson.view.ListContainer', {
     		},
     		items: [
     		
-    		{
-    			align: 'left',
-    			iconCls: 'home',
-    			iconMask: true,
-    			id: 'toolBarListHome',
-    			action: 'toolBarListHome',
-    			
-    		}, 
-    		
-    		{
-    			align: 'left',
-    			iconCls: 'arrow_left',
-    			iconsMask: true,
-    			id: 'btnDetailBack',
-    			action: 'listBack',
-    			hidden: true,
-    			
-    		},	
-    		
-    		
-    		{
-    			xtype: 'spacer'
-    		},
-    		
-    		
-    		{
-    			align: 'right',
-    			text: 'Update',
-    			itemId: 'btnDetailUpdate',
-    			ui: 'confirm',
-    			hidden: true,
-    			action: 'detailUpdate'
-    			
-    		}
-    		
+	    		{
+	    			align: 'left',
+	    			iconCls: 'home',
+	    			iconMask: true,
+	    			id: 'toolBarListHome',
+	    			action: 'toolBarListHome',
+	    		}, 
+	    		
+	    		{
+	    			align: 'left',
+	    			iconCls: 'arrow_left',
+	    			iconsMask: true,
+	    			id: 'btnDetailBack',
+	    			action: 'listBack',
+	    			hidden: true,
+	    		},	
+	    		
+	    		
+	    		{
+	    			xtype: 'spacer'
+	    		},
+	    		
+	    		{
+	    			align: 'right',
+	    			iconMask: true,
+	    			iconCls: 'refresh',
+	    			action: 'listRefresh',
+	    			itemId: 'btnListRefresh'
+	    		},
+	    		
+	    		{
+	    			align: 'right',
+	    			text: 'Update',
+	    			itemId: 'btnDetailUpdate',
+	    			ui: 'confirm',
+	    			hidden: true,
+	    			action: 'detailUpdate'
+	    		}
     		]
   		},
         {

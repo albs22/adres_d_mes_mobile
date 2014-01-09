@@ -18,6 +18,7 @@ Ext.define('CleanTucson.store.Violations', {
 				},
 				//callbackKey: 'callback',
 				url: 'http://0.0.0.0:3000/api/violations',
+				//url: 'http://adresdmes.herokuapp.com/api/violations',	
 				//url: 'http://shielded-stream-2147.herokuapp.com/api/violations',				
 				//api: {
 				//	create: 'http://0.0.0.0:3000/api/violations',

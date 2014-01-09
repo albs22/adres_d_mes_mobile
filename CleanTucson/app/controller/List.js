@@ -13,6 +13,7 @@ Ext.define('CleanTucson.controller.List', {
       		btnBack: 			'button[action=listBack]',
       		btnUpdate:     		'button[action=detailUpdate]',
       		btnListHome:		'button[action=toolBarListHome]',
+      		btnListRefresh:		'button[action=listRefresh]',
       		dateEnteredField:	'#enteredDateDetail',
       		latField: 			'#latFieldDetail',
       		lngField: 			'#lngFieldDetail',
@@ -42,7 +43,10 @@ Ext.define('CleanTucson.controller.List', {
       		},
       		btnListHome: {
            		tap: 'goHome'
-           },
+            },
+            btnListRefresh: {
+            	tap: 'refreshList'
+            }
       		
 		}
 	},
@@ -60,6 +64,7 @@ Ext.define('CleanTucson.controller.List', {
 		this.getBtnBack().setHidden(false);
 		this.getBtnUpdate().setHidden(false);
 		this.getBtnListHome().setHidden(true);
+		this.getBtnListRefresh().setHidden(true);
 	
 		console.log("Record urlId: " + record.get('id'));
 		
@@ -88,15 +93,18 @@ Ext.define('CleanTucson.controller.List', {
 	onBtnBackTap: function() {
 		console.log('Back tap');
 		
-		var viewId = this.getListNavView().getActiveItem().getId();
-		console.log(viewId);
-		if (viewId.indexOf("violationDetail") != -1) {
-			this.getBtnBack().setHidden(true);
-			this.getBtnListHome().setHidden(false);
+		if (this.getListNavView()) {
+			var viewId = this.getListNavView().getActiveItem().getId();
+			console.log(viewId);
+			if (viewId.indexOf("violationDetail") != -1) {
+				this.getBtnBack().setHidden(true);
+				this.getBtnListHome().setHidden(false);
+			}
+	
+			this.getBtnListRefresh().setHidden(false);
+			this.getBtnUpdate().setHidden(true);
+			this.getListNavView().pop();
 		}
-
-		this.getBtnUpdate().setHidden(true);
-		this.getListNavView().pop();
 	},
 	
 	onBtnDetailUpdateTap: function() {
@@ -144,6 +152,10 @@ Ext.define('CleanTucson.controller.List', {
 		
 		store.sync();
 		
+	},
+	
+	refreshList: function() {
+		Ext.StoreMgr.get('Violations').load();
 	}
 	
 });

@@ -391,16 +391,18 @@ Ext.define('CleanTucson.controller.Home', {
     },
     
     onMapDetailBack: function() {
-		var viewId = this.getMapNavView().getActiveItem().getId();
-		console.log(viewId);
-		if (viewId.indexOf("violationDetail") != -1) {
-			this.getBtnMapBack().setHidden(true);
-			this.getBtnMapHome().setHidden(false);
-			this.getBtnShowDetail().setHidden(false);
-		}
-
-		//this.getBtnUpdate().setHidden(true);
-		this.getMapNavView().pop();
-   	}
+    	if (this.getMapNavView()) {
+			var viewId = this.getMapNavView().getActiveItem().getId();
+			console.log(viewId);
+			if (viewId.indexOf("violationDetail") != -1) {
+				this.getBtnMapBack().setHidden(true);
+				this.getBtnMapHome().setHidden(false);
+				this.getBtnShowDetail().setHidden(false);
+			}
+	
+			//this.getBtnUpdate().setHidden(true);
+			this.getMapNavView().pop();
+		}	
+	}
    	
 });
