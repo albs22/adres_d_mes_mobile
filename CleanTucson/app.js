@@ -27,7 +27,7 @@ Ext.application({
         'Main', 'Test', 'Map', 'MainTitleBar', 'ViolationList', 
         'ListContainer', 'Detail', 'SubmitContainer', 'SubmitForm', 
         'SelectLocation', 'CameraContainer', 'FullImage',
-        'MapContainer'
+        'MapContainer', 'FilterSelector'
     ],
     
     icon: {
