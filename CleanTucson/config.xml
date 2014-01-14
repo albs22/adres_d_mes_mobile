@@ -4,12 +4,12 @@
     <description>
         Help keep Tucson Clean by submiting messes around town.
     </description>
-    <author email="alex@addressdmess.org" href="http://cordova.io">
+    <author email="info@addressdmess.org" href="http://addressdmess.com">
         Alex Behlen
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <access origin="'http://shielded-stream-2147.herokuapp.com" />
+    <access origin="'http://adresdmes.herokuapp.com" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
 </widget>

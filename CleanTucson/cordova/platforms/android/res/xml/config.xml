@@ -12,11 +12,11 @@
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
-    <author email="alex@addressdmess.org" href="http://cordova.io">
+    <author email="info@addressdmess.org" href="http://addressdmess.com">
         Alex Behlen
     </author>
     <content src="index.html" />
-    <access origin="'http://shielded-stream-2147.herokuapp.com" />
+    <access origin="'http://adresdmes.herokuapp.com" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
 </widget>

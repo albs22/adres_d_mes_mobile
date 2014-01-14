@@ -12,7 +12,7 @@
 	 * @cfg {String} applicationId
 	 * This is the name namespace for your application. On IOS, this should match the name of your application in the Apple Provisioning Portal.
 	 */
-	"applicationId":"com.mycompany.myAppID",
+	"applicationId":"com.addressdmess",
 
 	/**
 	 * @cfg {String} bundleSeedId
@@ -25,14 +25,14 @@
 	 * @required
 	 * This is the version of your application.
 	 */
-	"versionString":"1.0",
+	"versionString":"1.0.2",
 
 	/**
 	 * @cfg {Integer} versionCode
 	 * @required
 	 * This is the integer version code of your application, or you can refer to it as a build number. Used only for Android builds.
 	 */
-	"versionCode":"1",
+	"versionCode":"43",
 
 	/**
 	 * @cfg {Object} icon
@@ -72,7 +72,7 @@
 	 * This is configuration for your application. `Debug` should always be used unless you are submitting your app to an online
 	 * store - in which case `Release` should be specified.
 	 */
-	"configuration":"Debug",
+	"configuration":"Release",
 
 	/**
 	 * @cfg {String} platform
@@ -104,7 +104,7 @@
 	 * This is the location of your certificate.
 	 * This is required when you are developing for Android or you are developing on Windows.
 	 */
-	"certificatePath":"/path/to/certificate.file",
+	/*"certificatePath":"/home/saasbook/AptanaStudio3Workspace/debug.keystore",*/
 
 	/**
 	 * @cfg {String} certificateAlias

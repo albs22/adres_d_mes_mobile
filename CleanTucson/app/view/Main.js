@@ -3,15 +3,15 @@ Ext.define('CleanTucson.view.Main', {
 	xtype: 'homePanel2',
 	alias: 'widget.home',
 	cls: 'main-panel',
-	
+
 	config: {
-		
+		html: "<img class='main-img' src='resources/images/512.jpg'  />",
 		items: [
 			{
 				xtype: 'toolbar',
 				title: 'Address D Mess',
 				id: 'mainBar',
-				dock: 'top',
+				docked: 'top',
 				items: [{
 					align: 'left',
 					iconCls: 'home',
@@ -19,6 +19,7 @@ Ext.define('CleanTucson.view.Main', {
 					action: 'toolBarHome'
 				}]
 			},
+			
 			{
 				xtype: 'panel',
 				docked: 'bottom',
@@ -46,7 +47,8 @@ Ext.define('CleanTucson.view.Main', {
 						cls: 'main-button',
 					} 
 				]
-			}]	
+			}
+			]	
 	}	
 	
 });

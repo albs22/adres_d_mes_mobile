@@ -42,11 +42,14 @@
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/icons/Icon.png \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/icons/Icon~ipad@2x.png \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/icons/Icon@2x.png \
+/home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/512.png \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/weeds_s.png \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/bigi.png \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/bigitem_s.png \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/mess_s.png \
+/home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/admicon.png \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/mapicon.png \
+/home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/512.jpg \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/bg.jpg \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/messi.png \
 /home/saasbook/AptanaStudio3Workspace/CleanTucsonMobile/CleanTucson/cordova/platforms/android/assets/www/resources/images/listicon.png \

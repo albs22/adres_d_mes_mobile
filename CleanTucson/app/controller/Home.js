@@ -69,14 +69,14 @@ Ext.define('CleanTucson.controller.Home', {
            */
       }
 	},
-	
+		
 	 //launch: function() {
     	//console.log('Launch');
         // When our controller is launched, create an instance of our User view and add it to the viewport
         // which has a card layout
        // Ext.Viewport.add(Ext.create('CleanTucson.view.Main'));
         
-        /*
+        /* Not used !!
         var geo = Ext.create('Ext.util.Geolocation', {
     autoUpdate: true,
     listeners: {
@@ -135,8 +135,8 @@ Ext.define('CleanTucson.controller.Home', {
     			icon: 'resources/images/location.png'
     		});
     	
+    	//Uncomment to enable geolocation
     	
-    	/*
     	
     	 var geo = Ext.create('Ext.util.Geolocation', {
 		    autoUpdate: true,
@@ -158,8 +158,8 @@ Ext.define('CleanTucson.controller.Home', {
 		        }
 		    }
 		});
-		//geo.updateLocation();
-		*/
+		geo.updateLocation();
+		
 		
 		
 	
