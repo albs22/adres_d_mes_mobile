@@ -42,6 +42,12 @@ Ext.define('CleanTucson.view.ListContainer', {
 	    		},
 	    		
 	    		{
+	    			alignt: 'right',
+	    			action: 'listFilter',
+	    			text: 'Filter'	
+	    		},
+	    		
+	    		{
 	    			align: 'right',
 	    			iconMask: true,
 	    			iconCls: 'refresh',

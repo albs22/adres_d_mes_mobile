@@ -14,6 +14,7 @@ Ext.define('CleanTucson.controller.List', {
       		btnUpdate:     		'button[action=detailUpdate]',
       		btnListHome:		'button[action=toolBarListHome]',
       		btnListRefresh:		'button[action=listRefresh]',
+      		btnListFilter:		'button[action=listFilter]',
       		dateEnteredField:	'#enteredDateDetail',
       		latField: 			'#latFieldDetail',
       		lngField: 			'#lngFieldDetail',
@@ -46,7 +47,13 @@ Ext.define('CleanTucson.controller.List', {
             },
             btnListRefresh: {
             	tap: 'refreshList'
-            }
+            },
+            btnListFilter: {
+            	tap: 'filterList'
+            },
+            "picker[itemId=vioPicker]": {
+        		change: 'onFilterChanged'
+    		}
       		
 		}
 	},
@@ -156,6 +163,19 @@ Ext.define('CleanTucson.controller.List', {
 	
 	refreshList: function() {
 		Ext.StoreMgr.get('Violations').load();
+	},
+	
+	filterList: function() {
+		if (!this.picker) {
+			this.picker = Ext.Viewport.add([Ext.create('CleanTucson.view.FilterSelector')]);
+			this.picker.show();
+		} else {
+			this.picker.show();
+		}
+	},
+	
+	onFilterChanged: function() {
+		console.log('it changed');
 	}
 	
 });
