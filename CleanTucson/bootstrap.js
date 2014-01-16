@@ -28,6 +28,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "CleanTucson.store.Violations": [],
   "CleanTucson.view.CameraContainer": [],
   "CleanTucson.view.Detail": [],
+  "CleanTucson.view.FilterSelector": [],
   "CleanTucson.view.FullImage": [],
   "CleanTucson.view.ListContainer": [],
   "CleanTucson.view.Main": [],
@@ -775,6 +776,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "CleanTucson.view.Detail": [
     "widget.violationDetail"
+  ],
+  "CleanTucson.view.FilterSelector": [
+    "widget.filterSelect"
   ],
   "CleanTucson.view.FullImage": [
     "widget.fullimg"

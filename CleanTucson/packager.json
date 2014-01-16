@@ -25,14 +25,14 @@
 	 * @required
 	 * This is the version of your application.
 	 */
-	"versionString":"1.0.2",
+	"versionString":"1.0.3",
 
 	/**
 	 * @cfg {Integer} versionCode
 	 * @required
 	 * This is the integer version code of your application, or you can refer to it as a build number. Used only for Android builds.
 	 */
-	"versionCode":"43",
+	"versionCode":"44",
 
 	/**
 	 * @cfg {Object} icon
@@ -104,7 +104,7 @@
 	 * This is the location of your certificate.
 	 * This is required when you are developing for Android or you are developing on Windows.
 	 */
-	/*"certificatePath":"/home/saasbook/AptanaStudio3Workspace/debug.keystore",*/
+	 "certificatePath":"/home/saasbook/AptanaStudio3Workspace/debug.keystore",
 
 	/**
 	 * @cfg {String} certificateAlias
@@ -117,13 +117,13 @@
 	 *
 	 * When using a certificatePath on Windows, you do not need to specify this.
 	 */
-	"certificateAlias":"",
+	"certificateAlias":"adm-release",
 
 	/**
 	 * @cfg {String} certificatePassword
 	 * The password which was specified during certificate export
 	 */
-	"certificatePassword":"",
+	"certificatePassword":"android",
 
 	/**
 	 * @cfg {String} provisionProfile
