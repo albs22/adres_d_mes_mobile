@@ -10,7 +10,9 @@ Ext.define('CleanTucson.controller.Detail', {
       		toggleField:		'#toggleFieldDetail',
       		imageBeforePanel: 	'#beforeImgPanel',
       		imageAfterPanel: 	'#afterImgPanel',
-      		img:				'#fimg'
+      		img:				'#fimg',
+      		btnUpdate:     		'button[action=detailUpdate]',
+      		btnUpdateMap: 		'button[action=detailUpdateMap]'
 		},
 		
 		control: {
@@ -57,9 +59,6 @@ Ext.define('CleanTucson.controller.Detail', {
    			this.getToggleField().setValue(1);
    		}
    		
-   		
-   	
-   		
    		//Display thumbnail image
    		if (record.image_before_url_t) {
    			this.getImageBeforePanel().setHtml("<img style='height: 100px;' src='" + record.image_before_url_t + "' />");
@@ -70,7 +69,6 @@ Ext.define('CleanTucson.controller.Detail', {
    			this.getImageAfterPanel().setHtml("<img style='height: 100px;' src='" + record.image_after_url_t + "' />");
    		}
    		*/
-   	
 	 },
 	 
 	 onShowFullImage: function() {

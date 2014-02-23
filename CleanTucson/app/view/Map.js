@@ -70,7 +70,7 @@ Ext.define('CleanTucson.view.Map', {
     				zoom: 14,
     				center: new google.maps.LatLng(32.253078, -110.965390), 
     				mapTypeId: google.maps.MapTypeId.ROADMAP,
-    				streetViewControl: false,
+    				streetViewControl: true,
     				
     			},
     			

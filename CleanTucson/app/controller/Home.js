@@ -32,6 +32,7 @@ Ext.define('CleanTucson.controller.Home', {
       		descriptionField: '#descriptionFieldMapDetail',
       		selectField:	'#selectFieldMapDetail',
       		toggleField:	'#toggleFieldMapDetail',
+      		btnUpdateMap: 	'button[action=detailUpdateMap]'
 		},
 		
 	    control: {
@@ -380,10 +381,19 @@ Ext.define('CleanTucson.controller.Home', {
     		data: this.currentViolation.getData()
     	});
     	
+    	console.log(this.currentViolation.get('status'));
+    	if (this.currentViolation.get('status') == 'closed') {
+    		this.getBtnUpdateMap().setHidden(true);
+    	} else {
+    		this.getBtnUpdateMap().setHidden(false);
+    	}
+    	
+    	
+    	
     	//Hide detail button when in Detail view
     	this.getBtnShowDetail().setHidden(true);
     	
-    	//Hide home button when in Detail view
+    	//Hide home button when idetailUpdateMapn Detail view
     	this.getBtnMapHome().setHidden(true);
    
     	//Show back button when in Detail view
@@ -398,6 +408,7 @@ Ext.define('CleanTucson.controller.Home', {
 				this.getBtnMapBack().setHidden(true);
 				this.getBtnMapHome().setHidden(false);
 				this.getBtnShowDetail().setHidden(false);
+				this.getBtnUpdateMap().setHidden(true);
 			}
 	
 			//this.getBtnUpdate().setHidden(true);

@@ -72,6 +72,14 @@ Ext.define('CleanTucson.controller.List', {
 		this.getBtnUpdate().setHidden(false);
 		this.getBtnListHome().setHidden(true);
 		this.getBtnListRefresh().setHidden(true);
+		this.getBtnListFilter().setHidden(true);
+		
+		if (record.get('status') == 'closed') {
+    		this.getBtnUpdate().setHidden(true);
+    	} else {
+    		this.getBtnUpdate().setHidden(false);
+    	}
+    	
 	
 		console.log("Record urlId: " + record.get('id'));
 		
@@ -107,8 +115,9 @@ Ext.define('CleanTucson.controller.List', {
 				this.getBtnBack().setHidden(true);
 				this.getBtnListHome().setHidden(false);
 			}
-	
+
 			this.getBtnListRefresh().setHidden(false);
+			this.getBtnListFilter().setHidden(false);
 			this.getBtnUpdate().setHidden(true);
 			this.getListNavView().pop();
 		}

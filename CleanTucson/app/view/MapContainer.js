@@ -37,10 +37,10 @@ Ext.define('CleanTucson.view.MapContainer', {
 					}, {
 						align: 'right',
 		    			text: 'Update',
-		    			itemId: 'btnDetailUpdate',
+		    			itemId: 'btnDetailUpdateMap',
 		    			ui: 'confirm',
 		    			hidden: true,
-		    			action: 'detailUpdate'
+		    			action: 'detailUpdateMap'
 					}
 				]
 			
