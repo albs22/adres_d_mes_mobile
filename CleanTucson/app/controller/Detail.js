@@ -68,6 +68,7 @@ Ext.define('CleanTucson.controller.Detail', {
    		
    		//Display thumbnail image
    		if (record.image_before_url_t) {
+   			this.imgBeforeUrl = record.image_before_url_f;
    			this.getImageBeforePanel().setHtml("<img style='height: 100px;' src='" + record.image_before_url_t + "' />");
    		}
    		
@@ -84,13 +85,16 @@ Ext.define('CleanTucson.controller.Detail', {
 		console.log('Full Image');
 		
 		
-		this.getImg().setHtml("<img style='height: 500px;' src='" + this.imgBeforeUrl + "' />");
+		
 		
 		
 		this.getListNavView().push({
 	      		xtype: 'fullimg',
 	      		title: 'Image',
 	   	}); 
+	   	
+	   	
+	   	this.getImg().setHtml("<img style='height: 500px;' src='" + this.imgBeforeUrl + "' />");
    	/*
    		 var history = this.getApplication().getHistory();
     	history.add(new Ext.app.Action({
@@ -116,7 +120,8 @@ Ext.define('CleanTucson.controller.Detail', {
 		
 		this.getListNavView().push({
       		xtype: 'cameraContainer',
-      		title: 'Camera'
+      		title: 'Camera',
+      		imgUrl: ''
    		});
 	}
 	
