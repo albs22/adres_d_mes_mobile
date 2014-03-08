@@ -104,6 +104,7 @@ Ext.define('CleanTucson.view.Detail', {
 				xtype: 'button',
 				action: 'showBeforeImg',
 				text: 'Full Image',
+				height: 25,
 				margin: '10 10 20 10'
 			}]
 		},
