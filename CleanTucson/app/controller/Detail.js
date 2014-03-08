@@ -67,12 +67,21 @@ Ext.define('CleanTucson.controller.Detail', {
    		}
    		
    		//Display thumbnail image
-   		if (record.image_before_url_t) {
+   		console.log("Image Before: " + record.image_before_url_t);
+   		
+   		if (!record.image_before_url_t == "" && !record.image_before_url_t.charAt(0) == "/") {
+				this.getBtnBeforeImg().setHidden(false);
    			this.imgBeforeUrl = record.image_before_url_f;
    			this.getImageBeforePanel().setHtml("<img style='height: 100px;' src='" + record.image_before_url_t + "' />");
+			} else {
+				//Before image not found use default thumbnail
+				this.getBtnBeforeImg().setHidden(true);
+				this.getImageBeforePanel().setHtml("<img style='height: 100px;' src='resources/images/missing_thumb.png' />");
    		}
    		
-   		if (!record.image_after_url_t === "") {
+   		console.log("Image After: " + record.image_after_url_t);
+   		if (!record.image_after_url_t == "" && !record.image_after_url_t.charAt(0) == "/") {
+				this.imgAfterUrl = record.image_after_url_f;
    			this.getBtnAfterImg().setText("Full Image");
    			this.getImageAfterPanel().setHtml("<img style='height: 100px;' src='" + record.image_after_url_t + "' />");
    		} else {
@@ -84,26 +93,13 @@ Ext.define('CleanTucson.controller.Detail', {
 	 onShowFullImage: function() {
 		console.log('Full Image');
 		
-		
-		
-		
-		
 		this.getListNavView().push({
 	      		xtype: 'fullimg',
 	      		title: 'Image',
 	   	}); 
 	   	
-	   	
 	   	this.getImg().setHtml("<img style='height: 500px;' src='" + this.imgBeforeUrl + "' />");
-   	/*
-   		 var history = this.getApplication().getHistory();
-    	history.add(new Ext.app.Action({
-    		url: 'camera'
-    	}), true);
    	
-   	
-   		Ext.Viewport.setActiveItem('cameraContainer');
-   	*/
    		
    		this.getBtnUpdate().setHidden(true);
    		this.getBtnBack().setHidden(false);
@@ -123,6 +119,12 @@ Ext.define('CleanTucson.controller.Detail', {
       		title: 'Camera',
       		imgUrl: ''
    		});
+
+
+	   	this.getImg().setHtml("<img style='height: 500px;' src='" + this.imgAfterUrl + "' />");
+
+			this.getBtnUpdate().setHidden(true);
+			this.getBtnBack().setHidden(false);
 	}
 	
 	
