@@ -16,7 +16,9 @@ Ext.define('CleanTucson.controller.Detail', {
       		btnUpdate:     		'button[action=detailUpdate]',
       		btnUpdateMap: 		'button[action=detailUpdateMap]',
       		btnBeforeImg:		'button[action=showBeforeImg]',
-      		btnAfterImg:		'button[action=showAfterImg]'
+      		btnAfterImg:		'button[action=showAfterImg]',
+      		btnListRefresh:		'button[action=listRefresh]',
+      		btnListFilter:		'button[action=listFilter]'
 		},
 		
 		control: {
@@ -68,20 +70,22 @@ Ext.define('CleanTucson.controller.Detail', {
    		
    		//Display thumbnail image
    		console.log("Image Before: " + record.image_before_url_t);
+   		console.log("char at: " + record.image_before_url_t.charAt(0));
    		
-   		if (!record.image_before_url_t == "" && !record.image_before_url_t.charAt(0) == "/") {
-				this.getBtnBeforeImg().setHidden(false);
+   		
+   		if (record.image_before_url_t != ""){
+			this.getBtnBeforeImg().setHidden(false);
    			this.imgBeforeUrl = record.image_before_url_f;
    			this.getImageBeforePanel().setHtml("<img style='height: 100px;' src='" + record.image_before_url_t + "' />");
-			} else {
+		} else {
 				//Before image not found use default thumbnail
 				this.getBtnBeforeImg().setHidden(true);
 				this.getImageBeforePanel().setHtml("<img style='height: 100px;' src='resources/images/missing_thumb.png' />");
    		}
    		
    		console.log("Image After: " + record.image_after_url_t);
-   		if (!record.image_after_url_t == "" && !record.image_after_url_t.charAt(0) == "/") {
-				this.imgAfterUrl = record.image_after_url_f;
+   		if (record.image_after_url_t != "" && record.image_after_url_t.charAt(0) != "/") {
+		    this.imgAfterUrl = record.image_after_url_f;
    			this.getBtnAfterImg().setText("Full Image");
    			this.getImageAfterPanel().setHtml("<img style='height: 100px;' src='" + record.image_after_url_t + "' />");
    		} else {
@@ -103,6 +107,8 @@ Ext.define('CleanTucson.controller.Detail', {
    		
    		this.getBtnUpdate().setHidden(true);
    		this.getBtnBack().setHidden(false);
+   		this.getBtnListRefresh().setHidden(true);
+   		this.getBtnListFilter().setHidden(true);
    		
    		var imageBeforeUrl = this.imgBeforeUrl;
    		

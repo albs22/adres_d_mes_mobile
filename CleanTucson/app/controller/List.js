@@ -112,13 +112,25 @@ Ext.define('CleanTucson.controller.List', {
 			var viewId = this.getListNavView().getActiveItem().getId();
 			console.log(viewId);
 			if (viewId.indexOf("violationDetail") != -1) {
+				this.getBtnUpdate().setHidden(true);
 				this.getBtnBack().setHidden(true);
 				this.getBtnListHome().setHidden(false);
+				this.getBtnListRefresh().setHidden(false);
+				this.getBtnListFilter().setHidden(false);
+				
+			} else if (viewId.indexOf("fullimg" != -1)) {
+				console.log("img view");
+				this.getBtnListFilter().setHidden(true);
+				this.getBtnListRefresh().setHidden(true);
+				this.getBtnUpdate().setHidden(false);
+			} else {
+				consol.log('else');
+				this.getBtnListRefresh().setHidden(false);
+				this.getBtnListFilter().setHidden(false);
+				this.getBtnUpdate().setHidden(true);
 			}
 
-			this.getBtnListRefresh().setHidden(false);
-			this.getBtnListFilter().setHidden(false);
-			this.getBtnUpdate().setHidden(true);
+			
 			this.getListNavView().pop();
 		}
 	},
