@@ -31,6 +31,11 @@ Ext.define('CleanTucson.view.MapContainer', {
 						xtype: 'spacer'
 					}, {
 						align: 'right',
+						iconMask: true,
+						iconCls: 'refresh',
+						action: 'mapRefresh',
+					}, {
+						align: 'right',
 						text: 'Details',
 						id: 'btnMapDetail',
 						disabled: true			

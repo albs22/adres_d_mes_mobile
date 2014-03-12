@@ -32,7 +32,9 @@ Ext.define('CleanTucson.controller.Home', {
       		descriptionField: '#descriptionFieldMapDetail',
       		selectField:	'#selectFieldMapDetail',
       		toggleField:	'#toggleFieldMapDetail',
-      		btnUpdateMap: 	'button[action=detailUpdateMap]'
+      		btnUpdateMap: 	'button[action=detailUpdateMap]',
+      		btnRefreshMap:	'button[action=mapRefresh]',
+      		map:			'#googlemap'
 		},
 		
 	    control: {
@@ -62,6 +64,9 @@ Ext.define('CleanTucson.controller.Home', {
            },
            'button[action=mapBack]': {
            		tap: 'onMapDetailBack'
+           },
+           btnRefreshMap: {
+           		tap: 'onRefreshMapTap'
            }
            /*
            'button[action=showFullImage]': {
@@ -118,6 +123,17 @@ Ext.define('CleanTucson.controller.Home', {
     },
     
     mapController: function(googlemap) {    	
+    	
+    	//console.log(googlemap);
+    	
+    	//if (googlemap == null) {
+    	//	console.log("Map Refresh");
+    		//googlemap = this.getMap();
+    	
+    	this.gmap  = googlemap;
+    	
+    	//}
+    	console.log(googlemap);
     	
     	console.log("Load Map");
     	//Ext.ComponentQuery.query('#mapDetail').setHtml("Detail Says Hello");
@@ -197,7 +213,7 @@ Ext.define('CleanTucson.controller.Home', {
     	
     	this.test1 = 42;
     	var panelRef = this.getMapInfoContainer();
-    	console.log(panelRef);
+    	//console.log(panelRef);
     	var btnShowDetailRef = this.getBtnShowDetail();
     	
     	
@@ -414,6 +430,14 @@ Ext.define('CleanTucson.controller.Home', {
 			//this.getBtnUpdate().setHidden(true);
 			this.getMapNavView().pop();
 		}	
+	},
+	
+	onRefreshMapTap: function() {
+		console.log("Refresh Map");
+		console.log(this.gmap);
+		//mapController(this.gmap);
+		CleanTucson.app.getController('Home').mapController(this.gmap);
+		
 	}
    	
 });
