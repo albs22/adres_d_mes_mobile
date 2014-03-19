@@ -224,7 +224,12 @@ Ext.define('CleanTucson.controller.Home', {
     	for (var i = 0, ln = violationList.getCount(); i < ln; i++) {
     		//console.log(violationList[i].data);
     		console.log(violationList.getAt(i));
-    		addMarker(violationList.getAt(i));
+    		console.log(violationList.getAt(i).get('status'));
+    		
+    		//Only display open messes on map
+    		if (violationList.getAt(i).get('status') == 'open') {
+    			addMarker(violationList.getAt(i));
+    		}
     	}
     	
     	//var currentViolationRef = this.getController('CleanTucson.controller.Home').getInternalVar();
@@ -253,8 +258,6 @@ Ext.define('CleanTucson.controller.Home', {
 	   			image += 'weedsi.png';
 	   		}
     		
-    		
-    	
     		
     		//create new marker
     		var marker = new google.maps.Marker({
