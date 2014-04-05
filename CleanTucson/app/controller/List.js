@@ -24,7 +24,8 @@ Ext.define('CleanTucson.controller.List', {
       		toggleField:		'#toggleFieldDetail',
       		imageBeforePanel: 	'#beforeImgPanel',
       		imageAfterPanel: 	'#afterImgPanel',
-      		img:				'#fimg'
+      		img:				'#fimg',
+      		filterPicker:		'#vioPicker'
       		
 		},
 		
@@ -51,8 +52,11 @@ Ext.define('CleanTucson.controller.List', {
             btnListFilter: {
             	tap: 'filterList'
             },
-            "picker[itemId=vioPicker]": {
-        		change: 'onFilterChanged'
+           "picker[itemId=vioPicker]": {
+          // 	filterPicker: {
+        	   change: 'onFilterChange',
+        		cancel: 'onFilterChange',
+        		pick: 'onFilterPick'
     		}
       		
 		}
@@ -230,13 +234,35 @@ Ext.define('CleanTucson.controller.List', {
 		if (!this.picker) {
 			this.picker = Ext.Viewport.add([Ext.create('CleanTucson.view.FilterSelector')]);
 			this.picker.show();
+			//Add pciker values here. Slots do not display if added in the view
+			this.picker.setSlots({
+		    	name: 'filter_value',
+			    title: 'Mess Filter',
+			    data: [
+			        { text: 'All', 			value: 'all' 	},
+		  			{ text: 'Still a Mess', value: 'open' 	},
+			    	{ text: 'Cleaned',		value: 'closed' 	}
+			   ]});
+	    
 		} else {
 			this.picker.show();
 		}
 	},
 	
-	onFilterChanged: function() {
+	onFilterChange: function(picker, value, oldValue) {
 		console.log('it changed');
+		console.log(value.filter_value);
+		
+		if (value.filter_value == 'all') {
+			Ext.StoreMgr.get('Violations').clearFilter();
+		} else {
+			Ext.StoreMgr.get('Violations').filter('status', value.filter_value);
+			//Ext.StoreMgr.get('Violations').load();
+		}
+	},
+	
+	onFilterPick: function() {
+		console.log('Filter Pick');
 	}
 	
 });
