@@ -361,6 +361,9 @@ Ext.define('CleanTucson.controller.Home', {
     
     onVioListTap: function() {
     	console.log("Show violation list");
+    	
+    	//Only show open messes on initial load
+    	Ext.StoreMgr.get('Violations').filter('status', "open");
  
     	var history = this.getApplication().getHistory();
     	history.add(new Ext.app.Action({
@@ -442,5 +445,6 @@ Ext.define('CleanTucson.controller.Home', {
 		CleanTucson.app.getController('Home').mapController(this.gmap);
 		
 	}
+	
    	
 });

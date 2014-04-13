@@ -230,6 +230,7 @@ Ext.define('CleanTucson.controller.List', {
 		Ext.StoreMgr.get('Violations').load();
 	},
 	
+	//Filter open and closed messes
 	filterList: function() {
 		if (!this.picker) {
 			this.picker = Ext.Viewport.add([Ext.create('CleanTucson.view.FilterSelector')]);
