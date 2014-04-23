@@ -25,14 +25,14 @@
 	 * @required
 	 * This is the version of your application.
 	 */
-	"versionString":"1.0.3",
+	"versionString":"1.0.5",
 
 	/**
 	 * @cfg {Integer} versionCode
 	 * @required
 	 * This is the integer version code of your application, or you can refer to it as a build number. Used only for Android builds.
 	 */
-	"versionCode":"44",
+	"versionCode":"46",
 
 	/**
 	 * @cfg {Object} icon
