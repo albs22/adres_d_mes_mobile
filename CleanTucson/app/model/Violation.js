@@ -10,7 +10,7 @@ Ext.define('CleanTucson.model.Violation', {
 			{ name: 'status',				type: 'string' },
 			{ name: 'violation_type', 		type: 'string' },
 			{ name: 'violation_address', 	type: 'string' },
-			{ name: 'neighborhood',			type: 'string' },
+			//{ name: 'neighborhood',			type: 'string' },
 			{ name: 'image_before',			type: 'string' },	
 			{ name: 'image_after',			type: 'string' },					
 			{ name: 'image_before_url_t', 	type: 'string' },

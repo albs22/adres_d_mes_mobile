@@ -32,6 +32,9 @@ Ext.define('CleanTucson.controller.Home', {
       		descriptionField: '#descriptionFieldMapDetail',
       		selectField:	'#selectFieldMapDetail',
       		toggleField:	'#toggleFieldMapDetail',
+      		btnUpdateMap: 	'button[action=detailUpdateMap]',
+      		btnRefreshMap:	'button[action=mapRefresh]',
+      		map:			'#googlemap'
 		},
 		
 	    control: {
@@ -61,6 +64,9 @@ Ext.define('CleanTucson.controller.Home', {
            },
            'button[action=mapBack]': {
            		tap: 'onMapDetailBack'
+           },
+           btnRefreshMap: {
+           		tap: 'onRefreshMapTap'
            }
            /*
            'button[action=showFullImage]': {
@@ -117,6 +123,17 @@ Ext.define('CleanTucson.controller.Home', {
     },
     
     mapController: function(googlemap) {    	
+    	
+    	//console.log(googlemap);
+    	
+    	//if (googlemap == null) {
+    	//	console.log("Map Refresh");
+    		//googlemap = this.getMap();
+    	
+    	this.gmap  = googlemap;
+    	
+    	//}
+    	console.log(googlemap);
     	
     	console.log("Load Map");
     	//Ext.ComponentQuery.query('#mapDetail').setHtml("Detail Says Hello");
@@ -196,7 +213,7 @@ Ext.define('CleanTucson.controller.Home', {
     	
     	this.test1 = 42;
     	var panelRef = this.getMapInfoContainer();
-    	console.log(panelRef);
+    	//console.log(panelRef);
     	var btnShowDetailRef = this.getBtnShowDetail();
     	
     	
@@ -207,7 +224,12 @@ Ext.define('CleanTucson.controller.Home', {
     	for (var i = 0, ln = violationList.getCount(); i < ln; i++) {
     		//console.log(violationList[i].data);
     		console.log(violationList.getAt(i));
-    		addMarker(violationList.getAt(i));
+    		console.log(violationList.getAt(i).get('status'));
+    		
+    		//Only display open messes on map
+    		if (violationList.getAt(i).get('status') == 'open') {
+    			addMarker(violationList.getAt(i));
+    		}
     	}
     	
     	//var currentViolationRef = this.getController('CleanTucson.controller.Home').getInternalVar();
@@ -236,8 +258,6 @@ Ext.define('CleanTucson.controller.Home', {
 	   			image += 'weedsi.png';
 	   		}
     		
-    		
-    	
     		
     		//create new marker
     		var marker = new google.maps.Marker({
@@ -341,6 +361,9 @@ Ext.define('CleanTucson.controller.Home', {
     
     onVioListTap: function() {
     	console.log("Show violation list");
+    	
+    	//Only show open messes on initial load
+    	Ext.StoreMgr.get('Violations').filter('status', "open");
  
     	var history = this.getApplication().getHistory();
     	history.add(new Ext.app.Action({
@@ -380,10 +403,19 @@ Ext.define('CleanTucson.controller.Home', {
     		data: this.currentViolation.getData()
     	});
     	
+    	console.log(this.currentViolation.get('status'));
+    	if (this.currentViolation.get('status') == 'closed') {
+    		this.getBtnUpdateMap().setHidden(true);
+    	} else {
+    		this.getBtnUpdateMap().setHidden(false);
+    	}
+    	
+    	
+    	
     	//Hide detail button when in Detail view
     	this.getBtnShowDetail().setHidden(true);
     	
-    	//Hide home button when in Detail view
+    	//Hide home button when idetailUpdateMapn Detail view
     	this.getBtnMapHome().setHidden(true);
    
     	//Show back button when in Detail view
@@ -398,11 +430,21 @@ Ext.define('CleanTucson.controller.Home', {
 				this.getBtnMapBack().setHidden(true);
 				this.getBtnMapHome().setHidden(false);
 				this.getBtnShowDetail().setHidden(false);
+				this.getBtnUpdateMap().setHidden(true);
 			}
 	
 			//this.getBtnUpdate().setHidden(true);
 			this.getMapNavView().pop();
 		}	
+	},
+	
+	onRefreshMapTap: function() {
+		console.log("Refresh Map");
+		console.log(this.gmap);
+		//mapController(this.gmap);
+		CleanTucson.app.getController('Home').mapController(this.gmap);
+		
 	}
+	
    	
 });

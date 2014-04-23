@@ -87,20 +87,48 @@ Ext.define('CleanTucson.view.Detail', {
 		
 		
 		{
+			xtype: 'label',
+			html: 'Before'
+		},
+		
+		{	
 			xtype:'panel',
+			layout: {
+				type: 'hbox',
+				pack: 'center'
+			},
+			items: [{			
+				xtype: 'panel',
+				id: 'beforeImgPanel',
+			}, {
+				xtype: 'button',
+				action: 'showBeforeImg',
+				text: 'Full Image',
+				height: 25,
+				margin: '10 10 20 10'
+			}]
+		},
+		
+		{
+			xtype: 'label',
+			html: 'After'
+		},
+		
+		{
+			xtype: 'panel',
 			layout: {
 				type: 'hbox',
 				pack: 'center'
 			},
 			items: [{
 				xtype: 'panel',
-				id: 'beforeImgPanel'
+				id: 'afterImgPanel'
 			}, {
 				xtype: 'button',
-				action: 'showFullImage',
-				text: 'Full Image',
+				action: 'showAfterImg',
 				margin: '10 10 20 10'
-			}]
+			}]			
+			
 		}
 		
 		

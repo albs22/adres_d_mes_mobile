@@ -62,6 +62,7 @@ Ext.define('CleanTucson.view.ListContainer', {
 	    			ui: 'confirm',
 	    			hidden: true,
 	    			action: 'detailUpdate'
+	    			
 	    		}
     		]
   		},
