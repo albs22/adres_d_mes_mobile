@@ -54,6 +54,12 @@ Ext.define('CleanTucson.view.Detail', {
 			itemId: 'descriptionFieldDetail',
 		},
 		{
+			xtype: 'textfield',
+			name: 'submittedDate',
+			label: 'Submitted Date',
+			itemId: 'submittedDateDetail',
+		},
+		{
 			xtype: 'selectfield',
 			name: 'type',
 			label: 'Type',

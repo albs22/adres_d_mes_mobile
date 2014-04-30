@@ -7,6 +7,7 @@ Ext.define('CleanTucson.controller.Detail', {
 			listNavView:		'listNavView',
 			addressField:		'#addressFieldDetail',
       		descriptionField: 	'#descriptionFieldDetail',
+      		submittedDateField:	'#submittedDateDetail',
       		selectField:		'#selectFieldDetail',
       		toggleField:		'#toggleFieldDetail',
       		imageBeforePanel: 	'#beforeImgPanel',
@@ -43,6 +44,7 @@ Ext.define('CleanTucson.controller.Detail', {
 	 	//set Detail view field values
 	 	this.getAddressField().setValue(record.violation_address);
 	 	this.getDescriptionField().setValue(record.description);
+	 	this.getSubmittedDateField().setValue(record.date_submitted);
 	 	
 	 	
 	 	//Set mess type
