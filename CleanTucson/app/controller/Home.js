@@ -410,7 +410,8 @@ Ext.define('CleanTucson.controller.Home', {
     		this.getBtnUpdateMap().setHidden(false);
     	}
     	
-    	
+    	//Hide refresh button when in Detail view
+    	this.getBtnRefreshMap().setHidden(true);
     	
     	//Hide detail button when in Detail view
     	this.getBtnShowDetail().setHidden(true);
@@ -428,9 +429,12 @@ Ext.define('CleanTucson.controller.Home', {
 			console.log(viewId);
 			if (viewId.indexOf("violationDetail") != -1) {
 				this.getBtnMapBack().setHidden(true);
+				this.getBtnUpdateMap().setHidden(true);
+				
+				this.getBtnRefreshMap().setHidden(false);
 				this.getBtnMapHome().setHidden(false);
 				this.getBtnShowDetail().setHidden(false);
-				this.getBtnUpdateMap().setHidden(true);
+				
 			}
 	
 			//this.getBtnUpdate().setHidden(true);

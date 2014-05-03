@@ -41,11 +41,12 @@ Ext.define('CleanTucson.view.ListContainer', {
 	    			xtype: 'spacer'
 	    		},
 	    		
+	    		/*
 	    		{
 	    			alignt: 'right',
 	    			action: 'listFilter',
 	    			text: 'Filter'	
-	    		},
+	    		}, */
 	    		
 	    		{
 	    			align: 'right',
