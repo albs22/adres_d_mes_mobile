@@ -76,7 +76,7 @@ Ext.define('CleanTucson.controller.List', {
 		this.getBtnUpdate().setHidden(false);
 		this.getBtnListHome().setHidden(true);
 		this.getBtnListRefresh().setHidden(true);
-		this.getBtnListFilter().setHidden(true);
+		//this.getBtnListFilter().setHidden(true);
 		
 		if (record.get('status') == 'closed') {
     		this.getBtnUpdate().setHidden(true);
@@ -121,17 +121,17 @@ Ext.define('CleanTucson.controller.List', {
 				this.getBtnBack().setHidden(true);
 				this.getBtnListHome().setHidden(false);
 				this.getBtnListRefresh().setHidden(false);
-				this.getBtnListFilter().setHidden(false);
+				//this.getBtnListFilter().setHidden(false);
 				
 			} else if (viewId.indexOf("fullimg" != -1)) {
 				console.log("img view");
-				this.getBtnListFilter().setHidden(true);
+				//this.getBtnListFilter().setHidden(true);
 				this.getBtnListRefresh().setHidden(true);
 				this.getBtnUpdate().setHidden(false);
 			} else {
 				consol.log('else');
 				this.getBtnListRefresh().setHidden(false);
-				this.getBtnListFilter().setHidden(false);
+				//this.getBtnListFilter().setHidden(false);
 				this.getBtnUpdate().setHidden(true);
 			}
 
@@ -143,86 +143,136 @@ Ext.define('CleanTucson.controller.List', {
 	onBtnDetailUpdateTap: function() {
 		console.log("Detail Update");
 		
-		//var formValues = this.getFormRef().getValues();
-		//console.log(formValues);
-		/*	
-		var updatedVio = Ext.create('CleanTucson.model.Violation', {
-				lat: formValues.latitude,
-				lng: formValues.longitude,
-				violation_type: formValues.type,
-				description: formValues.description,
-				violation_address: formValues.address,
-				status: formValues.status
-		});
-		*/
+		var continueUpdate = false;
 		
-		
-		var curId = this.currentViolationId;
-		//this.currentViolationId = "";
-		
-		var store = Ext.getStore('Violations');
-		console.log(store);
-		
-		console.log('Current ID: ' + curId);
-		var index = store.findExact('id', curId);
-		var record = store.getAt(index);
-		console.log(record);
-		
-		var statusValue = this.getToggleField().getValue();
-		console.log(statusValue);
-		
-		if (statusValue == 0) {
-			statusValue = 'open';
-		}		
-		else {
-			statusValue = 'closed';
-		}
-		
-		record.set({status: statusValue});
-		//console.log(store);
-		//store.getProxy().setExtraParams = {
-		//	id: this.currentViolationId
-		//};
-		
-		var curUrl;
-		console.log(this.apiUrl);
-		if (this.apiUrl) {
-			curUrl = this.apiUrl;
-		} else {
-			curUrl = store.getProxy().getUrl();
-			curUrl = curUrl + '/' + curId;
-			this.apiUrl = curUrl;
-		}
-		
-		//var curUrl = store.getProxy().getUrl();
-		//console.log("init url: " + curUrl);
-		//curUrl = curUrl + '/' + curId;
-		console.log(curUrl);
-		store.getProxy().setUrl(curUrl);
-		
+		//Update confirmation dialog
+		//Ext.Msg.confirm("Update", "Update this mess?", function(button){
+		 //   if (button == 'yes') {
+		    	
 	
 		
-		store.sync({
-			success: function (rec, op){
-				console.log('Sync was successful');
-				console.log(op);
-				//var msg = op.request.scope.reader.jsonData["msg"];
-				//var msg = rec.operations[0].request.scope.reader.jsonData["msg"];
-				//console.log(msg);
-				Ext.Msg.alert('Update', 'Update was Successful');
-			},
-			failure: function (rec, op){
-				console.log('Sync failed');
-				Ext.Msg.alert('Update', 'Update Failed');
-				//console.log(op.operations[0].request.scope.reader.jsonData["msg"]);
-			},
-			callback: function (batch){
-				
-				console.log('Always called after sync is complete whether it succeeded or not');
-				
-				
+
+			var curId = this.currentViolationId;
+			
+			var store = Ext.getStore('Violations');
+			console.log(store);
+			
+			console.log('Current ID: ' + curId);
+			var index = store.findExact('id', curId);
+			var record = store.getAt(index);
+			console.log(record);
+			
+			var statusValue = this.getToggleField().getValue();
+			console.log(statusValue);
+			
+			if (statusValue == 0) {
+				statusValue = 'open';
+			}		
+			else {
+				statusValue = 'closed';
 			}
-		});
+			
+			record.set({status: statusValue});
+			//console.log(store);
+			//store.getProxy().setExtraParams = {
+			//	id: this.currentViolationId
+			//};
+			
+			var curUrl;
+			console.log(this.apiUrl);
+			if (this.apiUrl) {
+				curUrl = this.apiUrl;
+			} else {
+				curUrl = store.getProxy().getUrl();
+				curUrl = curUrl + '/' + curId;
+				this.apiUrl = curUrl;
+			}
+			
+			console.log(curUrl);
+			store.getProxy().setUrl(curUrl);
+		
+			store.sync({
+				success: function (rec, op){
+					console.log('Sync was successful');
+					console.log(op);
+					//var msg = op.request.scope.reader.jsonData["msg"];
+					//var msg = rec.operations[0].request.scope.reader.jsonData["msg"];
+					//console.log(msg);
+					Ext.Msg.alert('Update', 'Update was Successful');
+				},
+				failure: function (rec, op){
+					console.log('Sync failed');
+					Ext.Msg.alert('Update', 'Update Failed');
+					//console.log(op.operations[0].request.scope.reader.jsonData["msg"]);
+				},
+				callback: function (batch){
+					console.log('Always called after sync is complete whether it succeeded or not');
+				}
+			});var curId = this.currentViolationId;
+			
+			var store = Ext.getStore('Violations');
+			console.log(store);
+			
+			console.log('Current ID: ' + curId);
+			var index = store.findExact('id', curId);
+			var record = store.getAt(index);
+			console.log(record);
+			
+			var statusValue = this.getToggleField().getValue();
+			console.log(statusValue);
+			
+			if (statusValue == 0) {
+				statusValue = 'open';
+			}		
+			else {
+				statusValue = 'closed';
+			}
+			
+			record.set({status: statusValue});
+			//console.log(store);
+			//store.getProxy().setExtraParams = {
+			//	id: this.currentViolationId
+			//};
+			
+			var curUrl;
+			console.log(this.apiUrl);
+			if (this.apiUrl) {
+				curUrl = this.apiUrl;
+			} else {
+				curUrl = store.getProxy().getUrl();
+				curUrl = curUrl + '/' + curId;
+				this.apiUrl = curUrl;
+			}
+			
+			console.log(curUrl);
+			store.getProxy().setUrl(curUrl);
+		
+			store.sync({
+				success: function (rec, op){
+					console.log('Sync was successful');
+					console.log(op);
+					//var msg = op.request.scope.reader.jsonData["msg"];
+					//var msg = rec.operations[0].request.scope.reader.jsonData["msg"];
+					//console.log(msg);
+					Ext.Msg.alert('Update', 'Update was Successful');
+				},
+				failure: function (rec, op){
+					console.log('Sync failed');
+					Ext.Msg.alert('Update', 'Update Failed');
+					//console.log(op.operations[0].request.scope.reader.jsonData["msg"]);
+				},
+				callback: function (batch){
+					console.log('Always called after sync is complete whether it succeeded or not');
+				}
+			});
+			
+			
+				   // }
+			
+			
+				 //   }
+		//});
+		
 		
 	},
 	

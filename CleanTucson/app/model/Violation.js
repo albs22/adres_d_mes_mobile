@@ -2,7 +2,7 @@ Ext.define('CleanTucson.model.Violation', {
 	extend: 'Ext.data.Model',
 	config: {
 		fields: [
-			{ name: 'date_submitted',			type: 'string'   },
+			{ name: 'date_entered',			type: 'string'   },
 			{ name: 'description', 			type: 'string' },
 			{ name: 'id', 					type: 'int'    },
 			{ name: 'lat', 					type: 'float'  },
